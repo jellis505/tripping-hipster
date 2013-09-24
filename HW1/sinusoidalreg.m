@@ -25,8 +25,8 @@ function [err,model,errT] = sinusoidalreg(x,y,k,xT,yT)
 xcos = zeros(length(x),k);
 xsin = zeros(length(x),k);
 for i=1:k
-  xcos(:,i) = cos((k-1)*x);
-  xsin(:,i) = sin((k-1)*x);
+  xcos(:,i) = cos((k-i)*x);
+  xsin(:,i) = sin((k-i)*x);
 end
 xboth = [xcos xsin];
 model = pinv(xboth)*y;
@@ -38,8 +38,8 @@ if (nargin==5)
   xcosT = zeros(length(xT),k);
   xsinT = zeros(length(xT),k);
   for i=1:k
-    xcosT(:,i) = cos((k-1)*xT);
-    xsinT(:,i) = sin((k-1)*xT);
+    xcosT(:,i) = cos((k-i)*xT);
+    xsinT(:,i) = sin((k-i)*xT);
   end
   xbothT = [xcosT xsinT];
   errT  = (1/(2*length(xT)))*sum((yT-xbothT*model).^2);
@@ -52,8 +52,8 @@ q  = (min(x):(max(x)/300):max(x))';
 qcos = zeros(length(q),k);
 qsin = zeros(length(q),k);
 for i=1:k
-  qcos(:,i) = cos((k-1)*q);
-  qsin(:,1) = sin((k-1)*q);
+  qcos(:,i) = cos((k-i)*q);
+  qsin(:,1) = sin((k-i)*q);
 end
 qboth = [qcos qsin];
 

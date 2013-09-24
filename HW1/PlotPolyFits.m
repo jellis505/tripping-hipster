@@ -11,10 +11,10 @@ figure
 plot(x,y,'X')
 hold on
 % Create the x vector for each of the points to draw the curve
-points = (min(x):(max(x)/100):max(x))';
+points = (min(x):((max(x)-min(x))/100):max(x))';
 xvec = zeros(length(points),d);
-for i = 1:length(theta)
-    xvec(:,i) = points.^(i-1);
+for i = 1:d
+    xvec(:,i) = points.^(d-i);
 end
 
 % Calculate the y_vector value
