@@ -24,9 +24,9 @@ function [err,model,errT] = sinusoidalreg(x,y,k,xT,yT)
 % squared loss error
 xcos = zeros(length(x),k);
 xsin = zeros(length(x),k);
-for i=1:k
-  xcos(:,i) = cos((k-i)*x);
-  xsin(:,i) = sin((k-i)*x);
+for i=0:k
+  xcos(:,i+1) = cos(i*x);
+  xsin(:,i+1) = sin(i*x);
 end
 xboth = [xcos xsin];
 model = pinv(xboth)*y;
@@ -37,9 +37,9 @@ err   = (1/(2*length(x)))*sum((y-(xboth*model)).^2);
 if (nargin==5)
   xcosT = zeros(length(xT),k);
   xsinT = zeros(length(xT),k);
-  for i=1:k
-    xcosT(:,i) = cos((k-i)*xT);
-    xsinT(:,i) = sin((k-i)*xT);
+  for i=0:k
+    xcosT(:,i+1) = cos(i*xT);
+    xsinT(:,i+1) = sin(i*xT);
   end
   xbothT = [xcosT xsinT];
   errT  = (1/(2*length(xT)))*sum((yT-xbothT*model).^2);
@@ -51,9 +51,9 @@ end
 q  = (min(x):(max(x)/300):max(x))';
 qcos = zeros(length(q),k);
 qsin = zeros(length(q),k);
-for i=1:k
-  qcos(:,i) = cos((k-i)*q);
-  qsin(:,1) = sin((k-i)*q);
+for i=0:k
+  qcos(:,i+1) = cos((i)*q);
+  qsin(:,i+1) = sin((i)*q);
 end
 qboth = [qcos qsin];
 
