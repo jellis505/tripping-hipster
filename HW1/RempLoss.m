@@ -9,7 +9,18 @@ function [ Loss ] = RempLoss(x,y,theta)
 %       regression
 %   Outputs: 
 %       - Loss = The empirical loss across the dataset
+
 N = length(x);
-Loss = (sum((y-1).*log(1-LogRegFunc(x,theta)) - y.*log(LogRegFunc(x,theta))))/N;
+Loss_per_point = ((y-1).*log(1-LogRegFunc(x,theta)) - y.*log(LogRegFunc(x,theta)));
+
+% Now we need to check to see if any of the points are NaN values due to
+% rounding error.  
+if any(isnan(Loss_per_point))
+    nan_idx = isnan(Loss_per_point);
+    Loss_per_point(nan_idx) = 0;
+end
+
+Loss = sum(Loss_per_point)/N;
+
 end
 

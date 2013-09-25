@@ -15,16 +15,12 @@ grad_theta = zeros(1,length(theta));
 N = length(x);
 
 for i = 1:length(theta) 
-    for j = 1:length(theta)
-        if j == i
-            theta_val(j) = theta(i);
-        else
-            theta_val(j) = 0;
-        end
-    end
     % This function finds the partial with respect to theta
-    partial_for_theta = sum((((1-y)./(1-LogRegFunc(x,theta_val))) - (y./(LogRegFunc(x,theta_val)))).*(LogRegFunc(x,theta_val).*(1-LogRegFunc(x,theta_val))))/N;
+    %partial_for_theta = sum((((1-y)./(1-LogRegFunc(x,theta_val))) - (y./(LogRegFunc(x,theta_val)))).*(LogRegFunc(x,theta_val).*(1-LogRegFunc(x,theta_val))))/N;
+    %grad_theta(i) = partial_for_theta;
+    partial_for_theta = sum((y - LogRegFunc(x,theta)).*x(:,i))/N;
     grad_theta(i) = partial_for_theta;
+
 end
 
 end
