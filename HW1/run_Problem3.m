@@ -13,7 +13,7 @@ load('Data/dataset2.mat');
 % logistic loss function
 eta_step = 100;
 epsilon_tolerance = .001;
-theta = rand(1,3);
+theta = rand(1,size(X,2));
 
 %Now let's use gradient descent to find the optimum solution
 % Batch Gradient Descent
@@ -27,7 +27,7 @@ while (theta_diff > epsilon_tolerance)
     %norm_grad = grad/(norm(grad));    
     theta = theta + eta_step*grad;
     Loss = RempLoss(X,Y,theta);
-    theta_diff = norm(theta-old_theta)
+    theta_diff = norm(theta-old_theta);
 
 end
 
