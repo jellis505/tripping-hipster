@@ -7,7 +7,7 @@
 % x = the input vector
 % y = the output labels
 clear all; close all;
-load('Data\dataset1a.mat')
+load('Data/dataset1a.mat')
 
 %We are provided the polyreg.m code for this problem so we will use this to
 %find the error for a variety of different values of D.
