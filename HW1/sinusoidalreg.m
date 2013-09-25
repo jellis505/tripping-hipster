@@ -57,9 +57,12 @@ for i=0:k
 end
 qboth = [qcos qsin];
 
+
+% Uncomment if you want to output the results
+%{
+
 % Open up a new figure
 figure
-
 %clf
 plot(x,y,'X');
 hold on
@@ -71,3 +74,4 @@ plot(q,qboth*model,'r')
 % This section controls the output of the functions
 title_string = sprintf('K = %d',(k-1));
 title(title_string)
+%}
