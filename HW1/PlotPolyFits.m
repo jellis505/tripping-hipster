@@ -9,7 +9,7 @@ function PlotPolyFits(x,y,theta,d)
 figure
 % This plots the points
 plot(x,y,'X')
-hold on
+hold on;
 % Create the x vector for each of the points to draw the curve
 points = (min(x):((max(x)-min(x))/100):max(x))';
 xvec = zeros(length(points),d);

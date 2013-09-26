@@ -61,7 +61,7 @@
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
 
-\author{Joe Ellis} % Your name
+\author{Joe Ellis - jge2105} % Your name
 
 \date{\normalsize\today} % Today's date or a custom date
 
@@ -90,7 +90,7 @@ R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^n (y_{i} - f(x_{i};\bm{\thet
 \end{align}
 
 We perform cross-validation to find the adequate dimensionality of an appropriate model.  
-The cross-validation performed is completed 1000 times for each model complexity with train/test split of 9 points for training and 1 point for testing.  The results of the cross-validation can be seen in Figure \ref{fig:Prob1_cross_val}, and we can see that a model of 4 or 5 dimesions is suitable for this dataset.  Models with lower than 3-dimensions have a hard time describing the variation in the data, where as models with many more than 3-dimensions tend to overfit.
+The cross-validation performed is completed 1000 times for each model complexity with train/test split of 9 points for training and 1 point for testing.  The results of the cross-validation can be seen in Figure \ref{fig:Prob1_cross_val}, and we can see that a model of 4 or 5 dimesions is suitable for this dataset. 
 
 \begin{figure}
 \centering
@@ -99,7 +99,32 @@ The cross-validation performed is completed 1000 times for each model complexity
 \label{fig:Prob1_cross_val}
 \end{figure}
 
-Using the 3-dimensional model for $f$ we achieve the best polynomial regression function with  with our $R_{emp}(\bm{\theta}) = 0.0046$, and $\bm{\theta} = (0.1951, 5.4884, -19.6041, 14.9130)$.
+Models with lower than 3-dimensions have a hard time describing the variation in the data, where as models with many more than 3-dimensions tend to overfit. Examples of chosen $f$ of dimension 0,1,2, and 8 can be seen in Figure. \ref{fig:manyplots}.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{manyplots.jpg}
+\caption{Polynomial Fits of dimensionality, 1, 2, 3, and 8}
+\label{fig:manyplots}
+\end{figure}
+
+Using the 3-dimensional model for $f$ we achieve the best polynomial regression function with  with $R_{emp}(\bm{\theta}) = 0.0046$, and $\bm{\theta} = (0.1951, 5.4884, -19.6041, 14.9130)$.
+
+The model values for each of these curves can be seen in Table \ref{tab:prob1_models}.
+
+\begin{table}
+\label{tab:prob1_models}
+\caption{Model Values for Problem 1 Polynomial Regression}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+d = 1 & 0.259&0 &0 &0 &0 &0 &0 & 0\\ \hline
+d = 2 & -0.404 &0.451 &0 &0 &0 &0 &0 & 0\\ \hline
+d = 3 & 2.223 &-2.695&0.816 &0 &0 &0 &0 & 0\\ \hline
+d = 8 & -1159.6&4220.0 &-6093.68&4426.87&-1683.94 &309.74&-21.80 & 0.744\\
+\hline
+\end{tabular}
+\end{table}
+
 
 The plot of the polynomial that was found to fit the data set can be seen in Figure \ref{fig:prob1_curve1}.
 
@@ -233,9 +258,14 @@ Based on the proof shown above we will show that the inverse of the logistic squ
 \begin{align*}
 g^{-1}(y) &= g^{-1}(g(z)) \\
 &= ln(\frac{g(z)}{1-g(z)}) \\
-& = ln(\frac{g(z)}{g(-z)}) \\
+&= ln(\frac{g(z)}{g(-z)}) \\
 &= ln(\frac{\frac{e^{z}}{e^{z}+1}}{\frac{e^{z}}{e^{z}+1}}) \\
-& = ln(\frac{e^z + 1}{e^{-z} + 1})
+&= ln(\frac{e^z + 1}{e^{-z} + 1})\\
+&= ln(\frac{e^{z}(e^{-z}+1)}{e^{-z}+1})\\
+&= ln(e^{z})\\
+&= z.
 \end{align*}
+
+Therefore, we have shown that $g^{-1}(y) = ln(\frac{y}{1-y})$.
 
 \end{document}

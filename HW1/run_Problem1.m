@@ -44,6 +44,6 @@ PlotErrors(final_cross_val_errs,D);
 
 % Now find the model for our desired 4 dimensional plot
 [error, theta] = polyreg(x,y,4);
-theta
-error
 PlotPolyFits(x,y,theta,4)
+
+

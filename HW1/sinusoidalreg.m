@@ -22,6 +22,10 @@ function [err,model,errT] = sinusoidalreg(x,y,k,print_val,xT,yT)
 
 % This section learns the model on the training labels, and then finds the
 % squared loss error
+
+% Latex Equation for f(x) with sinusoidal basis
+% f(x;\bm{\theta}) = \theta_{0} +\sum\limits_{i=1}^k \theta_{i}sin(i*x) + \sum\limits_{i=1}^k \theta_{i+k}cos(i*x),
+
 xcos = zeros(length(x),k);
 xsin = zeros(length(x),k);
 for i=0:k
@@ -30,6 +34,10 @@ for i=0:k
 end
 xboth = [xcos xsin];
 model = pinv(xboth)*y;
+
+% Latex Equation for err
+% R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^n (y_{i} - f(x_{i};\bm{\theta}))^{2}
+
 err   = (1/(2*length(x)))*sum((y-(xboth*model)).^2);
 
 

@@ -11,6 +11,9 @@ function [ grad_theta ] = grad_Remp(x,y,theta)
 %       - grad_theta = The direction of the gradient at the current place
 %       of theta
 
+% Latex Equation for Partial Derivatives
+% \frac{\partial R_{emp}}{\partial \theta_{j}} = \frac{1}{N}\sum\limits_{i=1}^N(y_{i}-f(x;\bm{\theta}))x_{ij}.
+
 grad_theta = zeros(1,length(theta));
 N = length(x);
 
