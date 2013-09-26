@@ -11,8 +11,8 @@ load('Data/dataset2.mat');
 
 % Let's implement stochastic gradient descent to find the minimum of the
 % logistic loss function
-eta_step = 100;
-epsilon_tolerance = .1;
+eta_step = 10;
+epsilon_tolerance = .001;
 theta = rand(1,size(X,2));
 
 %Now let's use gradient descent to find the optimum solution
