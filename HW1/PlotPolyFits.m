@@ -19,7 +19,7 @@ end
 
 % Calculate the y_vector value
 yvec = xvec*theta;
-plot(points,yvec,'b-')
-xlabel('X points')
-ylabel('Y Values')
-title('Curve Fitting')
+plot(points,yvec,'r-')
+xlabel('Input Data')
+ylabel('Ouput Labels')
+title('Curve Fitting for Dataset1a')

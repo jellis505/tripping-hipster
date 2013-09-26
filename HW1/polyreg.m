@@ -41,11 +41,12 @@ for i=1:D
   qq(:,i) = q.^(D-i);
 end
 
-%clf
-%plot(x,y,'X');
-%hold on
+%{
+clf
+plot(x,y,'X');
+hold on
 if (nargin==5)
 plot(xT,yT,'cO');
 end
-%plot(q,qq*model,'r')
-
+plot(q,qq*model,'r')
+%}

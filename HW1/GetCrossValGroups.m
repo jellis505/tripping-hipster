@@ -26,12 +26,11 @@ train_idx = randperm(total_points,train_points);
 
 test_counter = 1;
 for i = 1:total_points
-    if any(i==train_idx)
+    if ~any(i == train_idx)
         test_idx(test_counter) = i;
         test_counter = test_counter + 1;
     end
 end
-
 
 % Grab the training values
 x_train = x(train_idx);

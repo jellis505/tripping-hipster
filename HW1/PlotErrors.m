@@ -7,10 +7,10 @@ function PlotErrors( error_vec, D )
 %       - D = The vector that corresponds to the dimension of each solution
 
 figure 
-plot(D,error_vec,'r-')
-title('Value of Error Across Training Set')
-xlabel('Dimension of Polynomial fit')
-ylabel('Error')
+plot(D-1,error_vec,'r-')
+title('Average Cross-Valiadation Remp Loss vs. Model Complexity')
+xlabel('Dimension of Polynomial Fit')
+ylabel('Cross-Validation Remp Loss')
 
 end
 
