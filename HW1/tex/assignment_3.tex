@@ -41,9 +41,9 @@
 \renewcommand{\footrulewidth}{0pt} % Remove footer underlines
 \setlength{\headheight}{13.6pt} % Customize the height of the header
 
-\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
 
@@ -90,20 +90,24 @@ R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^n (y_{i} - f(x_{i};\bm{\thet
 \end{align}
 
 We perform cross-validation to find the adequate dimensionality of an appropriate model.  
-The cross-validation performed is completed 1000 times for each model complexity with train/test split of 9 points for training and 1 point for testing.  The results of the cross-validation can be seen in Figure 1., and we can see that a model of 4 or 5 dimesions is suitable for this dataset.  Models with lower than 3-dimensions have a hard time describing the variation in the data, where as models with many more than 3-dimensions tend to overfit.
+The cross-validation performed is completed 1000 times for each model complexity with train/test split of 9 points for training and 1 point for testing.  The results of the cross-validation can be seen in Figure \ref{fig:Prob1_cross_val}, and we can see that a model of 4 or 5 dimesions is suitable for this dataset.  Models with lower than 3-dimensions have a hard time describing the variation in the data, where as models with many more than 3-dimensions tend to overfit.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{Prob1_CrossValError.jpg}
+\caption{Cross - Validation Loss vs. Model Complextiy}
+\label{fig:Prob1_cross_val}
 \end{figure}
 
 Using the 3-dimensional model for $f$ we achieve the best polynomial regression function with  with our $R_{emp}(\bm{\theta}) = 0.0046$, and $\bm{\theta} = (0.1951, 5.4884, -19.6041, 14.9130)$.
 
-The plot of the polynomial that was found to fit the data set can be seen in Figure 2.
+The plot of the polynomial that was found to fit the data set can be seen in Figure \ref{fig:prob1_curve1}.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{Curve.jpg}
+\caption{Polynomial Curve Fit for the Dataset1a}
+\label{fig:prob1_curve1}.
 \end{figure}
 
 \section{Problem 2}
@@ -120,19 +124,23 @@ The $R_{emp}(\bm{\theta})$ was calculated in the same way as above.
 For this problem we once again used 1-dimensional input data with real valued output variables from ``dataset1b.txt'' that was provided to us.
 For this dataset the first 100 elements from dataset1b were used for training and the second 100 were used for testing.
 We completed 100-fold cross validation across the training set using a training/test split of 80 points for training and 20 for test to determine what was a good complexity for to model these data points.
-A plot of the cross-validation accuracies can be seen below in Figure 3.
+A plot of the cross-validation accuracies can be seen below in Figure \ref{fig:prob2_crossvalerrors}.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{Prob2_CrossValError.jpg}
+\caption{Cross Validation Error for Model Complexity}
+\label{fig:prob2_crossvalerrors}.
 \end{figure}
 
 We can see that a good dimensionality for k that allows for a simple model but good performance, is $k=6$.  Using $k = 6$ as our model parameter we were able able to achieve a training error of $R_{emptrain} = 0.0012$ and testing error of $R_{emptest} = 0.0042$.  The found model has 13 parameters, and these parameters will be outputted to the screen if ``runProblem2.m'' is executed in the matlab command line environment, they were ommitted here for brevity.
-Finally, the result of our sinusoidal regression function can be seen below in Figure 4, where points marked by an ``x'' are training points, and those marked by an ``o'' are test points.
+Finally, the result of our sinusoidal regression function can be seen in Figure \ref{fig:prob2_curve}, where points marked by an ``x'' are training points, and those marked by an ``o'' are test points.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{prob2curve.jpg}
+\caption{Sinusoidal Regression Function}
+\label{fig:prob2_curve}
 \end{figure}
 
 \section{Problem 3}
@@ -166,32 +174,40 @@ This algorithm completes once $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t| < \epsilo
 Using the gradient descent algorithm we were able to achieve a perfect binary classification error on the given dataset, and our algorithm converges to a solution after only 80 iterations.
 The $\eta$ chosen allowed for very aggresive steps, and with this our Loss and binary error had some level of oscillation throughout the process.
 Our final found normalized parameters give $\bm{\theta}  = (-0.319, 0.836, 0.444)$, with a $R_{emp}(\bm{x};\bm{\theta}) = 0.0146$ 
-In Figure 6, we can see the  final linear logistic classifier imposed on top of our dataset, which shows the classification scheme.
+In Figure \ref{fig:classifier}, we can see the  final linear logistic classifier imposed on top of our dataset, which shows the classification scheme.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{prob3sol.jpg}
+\caption{Found Logistic Classifier}
+\label{fig:classifier}
 \end{figure}
 
-Figure 7 demonstrates how the $R_{emp}(\bm{\theta})$ varies over the iteration process, notice the oscillations due to the large step size.
+Figure \ref{fig:loss} demonstrates how the $R_{emp}(\bm{\theta})$ varies over the iteration process, notice the oscillations due to the large step size.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{logisticloss.jpg}
+\caption{Empirical Loss throughout the Gradient Descent}
+\label{fig:loss}
 \end{figure}
 
-Figure 8 shows how the Binary Classification error changes throughout the process.
+Figure \ref{fig:BinErr} shows how the Binary Classification error changes throughout the process.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{BinClassErr.jpg}
+\caption{Binary Classification Error throughout the Gradient Descent}
+\label{fig:BinErr}
 \end{figure}
 
-The $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t|$ measure can be seen for every step in the iteration in Figure 9.
+The $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t|$ measure can be seen for every step in the iteration in Figure \ref{fig:thetadiff}.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{theta_diff.jpg}
+\caption{Theta Difference throughout the Gradient Descent}
+\label{fig:thetadiff}
 \end{figure}
 
 It should be noted that if a smaller $\eta$ was chosen the plots 7-9 would have less oscillation within them.
@@ -200,5 +216,26 @@ A trade-off between speed and finding the best possible solution does exist with
 
 \section{Problem 4}
 
+In Problem 4 we will discuss and prove some properties of the logistic squashing function.
+This function is denoted as $g(z) = \frac{1}{1 + e^{-z}}$.  We will show that $g(-z) = 1 - g(z)$.  The proof is as follows.
+
+\begin{align*}
+1-g(z) &= 1- \frac{1}{1 + e^{-z}} \\
+&= \frac{1 + e^{-z}}{1 + e^{-z}}- \frac{1}{1 + e^{-z}} \\
+&= \frac{e^{-z}}{1 + e^{-z}} \\
+&= \frac{e^{-z}}{1 + e^{-z}}(\frac{e^{z}}{e^{z}}) \\
+&= \frac{1}{1 + e^{z}} \\
+&= g(-z).
+\end{align*}
+
+Based on the proof shown above we will show that the inverse of the logistic squashing function is, $g^{-1}(y) = ln(\frac{y}{1-y})$.  Let $g(z) = y$.
+
+\begin{align*}
+g^{-1}(y) &= g^{-1}(g(z)) \\
+&= ln(\frac{g(z)}{1-g(z)}) \\
+& = ln(\frac{g(z)}{g(-z)}) \\
+&= ln(\frac{\frac{e^{z}}{e^{z}+1}}{\frac{e^{z}}{e^{z}+1}}) \\
+& = ln(\frac{e^z + 1}{e^{-z} + 1})
+\end{align*}
 
 \end{document}
