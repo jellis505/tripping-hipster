@@ -31,7 +31,7 @@ while (theta_diff > epsilon_tolerance)
     %norm_grad = grad/(norm(grad));    
     theta = theta + eta_step*grad;
     Loss = RempLoss(X,Y,theta);
-    theta_diff = norm(theta-old_theta)
+    theta_diff = norm(theta-old_theta);
     
     % These vectors hold the loss and binary classification error
     Loss_vec(counter) = Loss;

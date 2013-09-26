@@ -29,6 +29,7 @@
 \usepackage{graphicx} % This one is for pictures
 \usepackage{sectsty} % Allows customizing section commands
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{color}
 
 \usepackage{fancyhdr} % Custom headers and footers
 \pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
@@ -155,12 +156,43 @@ To perform gradient descent to find the global minimum of $R_{emp}(\bm{\theta})$
 \end{align}
 
 Once we have the partial derivative for each element we can find the $\nabla R_{emp}(\bm{\theta})$, and then update our theta using this found gradient. 
-We define a stepsize as $\eta$, and then update our $\bm{\theta}$ after every iteration of gradient descent according to the equation,
+We define a stepsize as $\eta = 100$, and then update our $\bm{\theta}$ after every iteration of gradient descent according to the equation,
 
 \begin{align}
 \bm{\theta} ^{t+1} = \bm{\theta} ^t + \eta*\nabla R_{emp}(\bm{\theta})
 \end{align}
 
+This algorithm completes once $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t| < \epsilon$, where we have chosen $\epsilon = 0.1$. 
+Using the gradient descent algorithm we were able to achieve a perfect binary classification error on the given dataset, and our algorithm converges to a solution after only 80 iterations.
+The $\eta$ chosen allowed for very aggresive steps, and with this our Loss and binary error had some level of oscillation throughout the process.
+Our final found normalized parameters give $\bm{\theta}  = (-0.319, 0.836, 0.444)$, with a $R_{emp}(\bm{x};\bm{\theta}) = 0.0146$ 
+In Figure 6, we can see the  final linear logistic classifier imposed on top of our dataset, which shows the classification scheme.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{prob3sol.jpg}
+\end{figure}
+
+Figure 7 demonstrates how the $R_{emp}(\bm{\theta})$ varies over the iteration process, notice the oscillations due to the large step size.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{logisticloss.jpg}
+\end{figure}
+
+Figure 8 shows how the Binary Classification error changes throughout the process.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{BinClassErr.jpg}
+\end{figure}
+
+The $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t|$ measure can be seen for every step in the iteration in Figure 9.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{theta_diff.jpg}
+\end{figure}
 
 
 \section{Problem 4}
