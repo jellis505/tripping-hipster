@@ -9,7 +9,7 @@ function PlotErrors( error_vec, D )
 figure 
 plot(D-1,error_vec,'r-')
 title('Average Cross-Valiadation Remp Loss vs. Model Complexity')
-xlabel('Dimension of Polynomial Fit')
+xlabel('Dimension of Sinusoidal Fit')
 ylabel('Cross-Validation Remp Loss')
 
 end

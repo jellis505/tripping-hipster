@@ -1,4 +1,4 @@
-function [err,model,errT] = sinusoidalreg(x,y,k,xT,yT)
+function [err,model,errT] = sinusoidalreg(x,y,k,print_val,xT,yT)
 %
 % Finds a D-1 order Sinusoidal fit to the data
 %
@@ -34,7 +34,7 @@ err   = (1/(2*length(x)))*sum((y-(xboth*model)).^2);
 
 
 % This section only operates if we have test data 
-if (nargin==5)
+if (nargin>5)
   xcosT = zeros(length(xT),k);
   xsinT = zeros(length(xT),k);
   for i=0:k
@@ -59,19 +59,21 @@ qboth = [qcos qsin];
 
 
 % Uncomment if you want to output the results
-%{
 
 % Open up a new figure
-figure
-%clf
-plot(x,y,'X');
-hold on
-if (nargin==5)
-plot(xT,yT,'cO');
-end
-plot(q,qboth*model,'r')
+if print_val
+    figure
+    %clf
+    plot(x,y,'X');
+    hold on
+    if (nargin>5)
+    plot(xT,yT,'cO');
+    end
+    plot(q,qboth*model,'r')
 
-% This section controls the output of the functions
-title_string = sprintf('K = %d',(k-1));
-title(title_string)
-%}
+    % This section controls the output of the functions
+    title_string = sprintf('k = %d',(k));
+    title(title_string)
+    xlabel('Input Data')
+    ylabel('Ouput Labels')
+end
