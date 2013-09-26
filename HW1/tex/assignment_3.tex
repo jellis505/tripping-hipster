@@ -139,13 +139,31 @@ Finally, the result of our sinusoidal regression function can be seen below in F
 In Problem 3 we will use a linear logistic regression function to perform a binary classification task on 2-D input data.  In this problem we find a suitable $\bm{\theta}$ for our logistic classification function by using batch gradient descent.  The logistic classification function is defined as, 
 
 \begin{align}
-f(x;\bm{\theta}) = \frac{1}{1+exp(-\bm{\theta}^t\bm{x})}
+f(x;\bm{\theta}) = \frac{1}{1+exp(-\bm{\theta}^t\bm{x})}.
 \end{align}
 
 For this problem instead of using the average squared error for our loss function instead we will use, the logistic loss cost function, which is defined as, 
 
 \begin{align}
-R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^N(y_{i}-1)log(1-f(x;\bm{\theta})) - y_{i}log(f(x;\bm{\theta}))
+R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^N(y_{i}-1)log(1-f(x;\bm{\theta})) - y_{i}log(f(x;\bm{\theta})).
 \end{align}
+
+To perform gradient descent to find the global minimum of $R_{emp}(\bm{\theta})$ we need to find the partial derivatives of $R_{emp}(\bm{\theta})$ with respect to each different parameter within the $\bm{\theta}$ vector.  The partial with respect to each element of $\bm{\theta}$ is,
+
+\begin{align}
+\frac{\partial R_{emp}}{\partial \theta_{j}} = \frac{1}{N}\sum\limits_{i=1}^N(y_{i}-f(x;\bm{\theta}))x_{ij}.
+\end{align}
+
+Once we have the partial derivative for each element we can find the $\nabla R_{emp}(\bm{\theta})$, and then update our theta using this found gradient. 
+We define a stepsize as $\eta$, and then update our $\bm{\theta}$ after every iteration of gradient descent according to the equation,
+
+\begin{align}
+\bm{\theta} ^{t+1} = \bm{\theta} ^t + \eta*\nabla R_{emp}(\bm{\theta})
+\end{align}
+
+
+
+\section{Problem 4}
+
 
 \end{document}
