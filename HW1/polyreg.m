@@ -20,11 +20,18 @@ function [err,model,errT] = polyreg(x,y,D,xT,yT)
 % [err,model] = polyreg(x,y,4);
 %
 
+% Latex Equation for this function 
+% f(x;\bm{\theta}) = \bm{\theta}_{0}	+ \bm{\theta}_{1}x_{1} + \bm{\theta}_{2}x_{2} + ... + \bm{\theta}_{d}x_{d}
+
 xx = zeros(length(x),D);
 for i=1:D
   xx(:,i) = x.^(D-i);
 end
 model = pinv(xx)*y;
+
+% Latex Equation
+% R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^n (y_{i} - f(x_{i};\bm{\theta}))^{2}
+
 err   = (1/(2*length(x)))*sum((y-xx*model).^2);
 
 if (nargin==5)
@@ -41,11 +48,12 @@ for i=1:D
   qq(:,i) = q.^(D-i);
 end
 
-%clf
-%plot(x,y,'X');
-%hold on
+%{
+clf
+plot(x,y,'X');
+hold on
 if (nargin==5)
 plot(xT,yT,'cO');
 end
-%plot(q,qq*model,'r')
-
+plot(q,qq*model,'r')
+%}

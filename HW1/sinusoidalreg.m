@@ -1,4 +1,4 @@
-function [err,model,errT] = sinusoidalreg(x,y,k,xT,yT)
+function [err,model,errT] = sinusoidalreg(x,y,k,print_val,xT,yT)
 %
 % Finds a D-1 order Sinusoidal fit to the data
 %
@@ -22,6 +22,10 @@ function [err,model,errT] = sinusoidalreg(x,y,k,xT,yT)
 
 % This section learns the model on the training labels, and then finds the
 % squared loss error
+
+% Latex Equation for f(x) with sinusoidal basis
+% f(x;\bm{\theta}) = \theta_{0} +\sum\limits_{i=1}^k \theta_{i}sin(i*x) + \sum\limits_{i=1}^k \theta_{i+k}cos(i*x),
+
 xcos = zeros(length(x),k);
 xsin = zeros(length(x),k);
 for i=0:k
@@ -30,11 +34,15 @@ for i=0:k
 end
 xboth = [xcos xsin];
 model = pinv(xboth)*y;
+
+% Latex Equation for err
+% R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^n (y_{i} - f(x_{i};\bm{\theta}))^{2}
+
 err   = (1/(2*length(x)))*sum((y-(xboth*model)).^2);
 
 
 % This section only operates if we have test data 
-if (nargin==5)
+if (nargin>5)
   xcosT = zeros(length(xT),k);
   xsinT = zeros(length(xT),k);
   for i=0:k
@@ -59,19 +67,21 @@ qboth = [qcos qsin];
 
 
 % Uncomment if you want to output the results
-%{
 
 % Open up a new figure
-figure
-%clf
-plot(x,y,'X');
-hold on
-if (nargin==5)
-plot(xT,yT,'cO');
-end
-plot(q,qboth*model,'r')
+if print_val
+    figure
+    %clf
+    plot(x,y,'X');
+    hold on
+    if (nargin>5)
+    plot(xT,yT,'cO');
+    end
+    plot(q,qboth*model,'r')
 
-% This section controls the output of the functions
-title_string = sprintf('K = %d',(k-1));
-title(title_string)
-%}
+    % This section controls the output of the functions
+    title_string = sprintf('k = %d',(k));
+    title(title_string)
+    xlabel('Input Data')
+    ylabel('Ouput Labels')
+end
