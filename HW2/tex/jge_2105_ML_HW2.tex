@@ -225,9 +225,30 @@ The results of a different parameters can be seen in the upcoming figures.
 \end{figure}
 
 As you can see, we have found parameters for each type of kernel that achieves maximum accuracy. 
-However, the kernel that in general used the least amount of support vectors, and was quickest in classification was the linear SVM.
+
+However, the complexity of each of the kernels was not all the same.  
+To do a quick analysis we used some of the kernel adn parameters that had the best possible classification accuracy on our dataset, and then analyzed how many support vectors each learned classifier used.
+The results can be seen below in Table 1.
+
+\begin{table}
+\centering
+\label{tab:nsv}
+\caption{Average number of support vectors for 10 cross-validation trials}
+\begin{tabular}{|c|c|c|}
+\hline
+Classifier Type & Cost-Variable & \# of support vectors \\ \hline \hline
+linear & 10 & 2.9 \\ \hline
+2-d polynomial & .001 & 20.5 \\ \hline
+2-d polynomial & 10 & 6.7 \\ \hline
+RBF sigma=1 & 1 & 11.3 \\ \hline
+RBF sigma=1 & .01 & 50 \\ \hline
+\end{tabular}
+\end{table}
+
+The kernel that in general used the least amount of support vectors, and was quickest in classification was the linear SVM.
 Therefore, for this particular classification task I would reccomend using the linear SVM with $C=10$.
-However, if the dataset is more difficult and not linearly seperable we would instead need to focus on using a more flexible kernel function such as the RBF.
+However, if the dataset is more difficult and not linearly seperable we would instead need to focus on using a more flexible kernel function such as the RBF.  
+However, for this dataset using a more complicated kernel function appears to be overkill.
 
 
 
