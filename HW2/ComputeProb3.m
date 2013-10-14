@@ -1,11 +1,16 @@
 % Problem3script.m
 % Created by Joe Ellis to compute the gram matrix
-% This script creates the gram matrix and outputs it to the screen
+%   This script computes the gram matrix for the values given in Problem3.  
+%   The result is then output to the screen.  
+%   The result is shown in two different ways, by explicitly doing the integral and then taking the definite integral as shown in the assignment.  
+%   We also do this by numerically evaluting the integral using Matlab.  
+%   Both matrices are the same, therefore the explicit integration provided in the assignment is correct.
+
 
 % clear the variables;
 clear all; close all;
 
-% Here are the sample data points we have
+% Here are the sample data points we have from the homework
 X = [0.25 0.3 0.4; 0.2 0.4 0.25; 0.3 0.03 0.2; 0.1 0.2 0.15; 0.03 0.05 0.7];
 sample_points = length(X);
 

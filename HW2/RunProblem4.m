@@ -1,13 +1,19 @@
 function [accuracy] = RunProblem4( dataset_path, type_of_svm, C , p1 )
-%RUNPROBLEM4: This function furns the problem4 variables
+%RUNPROBLEM4(dataset_path, type_of_svm, C, p1): 
+%   Description: This function automatically seperates the training data from the test/data in a 50/50 split, 
+%   and then runs the classifier training based on the type of classifier it is given, 
+%   the Cost value, and the extra parameter (used only in 'poly' and 'RBF' classifiers.  
+%   This is done over 10-cross_validation scripts, and the final result accuracy across those values is passed as output of the function.
 %   Inputs:
 %       - dataset_path = The path to svm-dataset.m
 %       - type_of_svm = The type of kernel used for the svm
-%       - C = the cost value for non-seperable section
-%       - p1 = the first kernel input parameter, for poly this is the value
-%       of the polynomial, and rbf it is the value of sigma
+%           ('linear','poly','rbf')
+%       - C = the cost value that is used in the SVM.
+%       - p1 = kernel input parameter, for poly this is the
+%       degree of the polynomial, and rbf it is the value of sigma, and can
+%       be anything for linear.
 %   Outputs:
-%       - No Outputs
+%       - accuracy = The accuracy across the 10-fold cross-val trials
 
 % Add the path to the svm library
 addpath('svm')
