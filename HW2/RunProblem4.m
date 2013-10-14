@@ -26,7 +26,7 @@ for j = 1:num_trials
     perm_idx = randperm(total_vals);
     
     % Seperate the train_idx and test_idx
-    train_idx = perm_idx(1:(total_vals/2)+1);
+    train_idx = perm_idx(1:(total_vals/2));
     test_idx = perm_idx(floor(total_vals/2)+1:total_vals);
     
     % Training and Testing Points
