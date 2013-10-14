@@ -76,7 +76,55 @@
 \section{Problem 1}
 
 
+
 \section{Problem 2}
+
+A stationary kernel is some kernel such that the kernel result is translation invariant, we denote this as $K(x,z) = K_s(x-z)$.  We have two examples of stationary kernels for this problem.  The first example is the exponential kernel, $K_e(x,z) = e^{(-\frac{||x-z||}{\theta})}$, and the second example is the gaussian kernel, which is $K_g(x,z) = e^{(-\frac{||x-z||^2}{\theta})}$.
+
+We will show that they are mercer kernels based on the definition given in the lecture slides, that a mercer kernel is a kernel which is kernel that takes two inputs and outputs a scalar via denoted as,
+
+\begin{align}
+k(x_1,x_2) = <\phi(x_i),\phi(x_2)> = \left\{
+	\begin{array}{ll}
+		\phi(x_i)^t\phi(x_2) & \mbox{for } finite \phi \\
+		\int_t \phi(x_i,t)\phi(x_2,t) & \mbox{otherwise} 
+	\end{array}
+\right.
+\end{align} 
+
+Both of these are mercer kernels, because they both output scalar values, for both conditions.
+Let's assume that $\phi$ is finite, and then we know that on the top of the exponential function we have a magnitude which is scalar divided by a scalar parameter $\theta$ which yields some scalar output value.
+We also, know that the integral of the kernel provided is bounded due to the nature of the gaussian and exponential kernel, and therefore $\int_t \phi(x_i,t)\phi(x_2,t)$, is also bounded.  Therefore, both are mercer kernels.
+
+Now let's show that both of these are stationary kernels.  We will translate both of the elements by adding some arbitrary variable $k$, which is of the same dimensionality of the inputs $x_1$ and $x_2$.  Therefore, for any k we want to show that the kernels are stationary under sum and product.  First, assume we sum the kernels together,
+
+\begin{align}
+K_{sum}(x,z) &= K_e(x,z)+K_g(x,z) \\
+&= e^{(-\frac{||x-z||}{\theta})} + e^{(-\frac{||x-z||^2}{\theta})}, \\
+&= K_{se}(x-z) + K_{sg}(x-z). \\
+\end{align}
+
+Since both values that we receive in the summation depend only on the lag vectors, then we find that they are stationary under summation.
+
+Now let's show that these are also stationary kernels under multiplication.  For multiplicaiton we have,
+
+\begin{align}
+K_{mult}(x,z) &= K_e(x,z)K_g(x,z) \\
+&= e^{(-\frac{||x-z||}{\theta})}e^{(-\frac{||x-z||^2}{\theta})}, \\
+&=  e^{(-\frac{||x-z||+||x-z||^2}{\theta})}\\
+\end{align}
+
+Since the exponent of the above multiplication of the kernels also only depends on the value $x-z$, we have shown that these are also stationary under multiplication.
+
+For the second part of this problem, we will explicitly find the $\phi$ function such that $K(x_1,x_2) = \phi(x_1)^t\phi(x_2) =  e^{(-|||x_1-x_2||^2}$.
+
+\begin{align}
+K(x_1,x_2) &= \phi(x_1)^t\phi(x_2) \\
+&= e^{-||x_1-x_2||^2} \\
+&= e^{-(x_1-x_2)(x_1-x_2)}\\
+&= e^{-(x_1^{2} + x_2^{2} + 2x_1x_2)}
+\end{align}
+
 
 
 \section{Problem 3}
