@@ -75,7 +75,25 @@
 
 \section{Problem 1}
 
-In this problem we address multiple issues with the 
+In this problem we take a look at VC-dimensions, and how they operate and work.
+
+% Part A
+First, we will look at this problem, where we must prove that $VC(H) \leq log_2|H|$, where H is a hypothesis space, and $|H|$ are the amount of possible hypothesis available in the space.  First, we assume that $VC(H) = d$.  Thus, whatever our shattering function is (lines, hyperbolas, circles, etc.) it can shatter d-points in the hypothesis space.  This is by the defninition of VC-dimension.  If we are seperating the points into two different classes, and we have d-points, then we know that there are atleast $2^d$ different hypotheses available to us.  Thus, for our space H, we know that $|H| \geq 2^d$.  However, since $|H| \geq 2^d$, then we also have that,
+
+\begin{align}
+log_2|H| &\geq log_2(2^d) \\
+&= d \\
+&= VC(H).
+\end{align}
+
+Thus, we have  shown that $VC(H) \leq log_2|H|$, as desired.
+
+% PartB
+In this problem we address a linear perceptron in $\mathbb{R}^d$, and find its VC-dimension.  We want to find the number of points that a perceptron can shatter in this dimension, so let's analyze.  We know that a linear perceptron in $\mathbb{R}^2$, can shatter 3 points.  However, we know from slide \#7 in Topic \#5 slides that for any high-dimensional linear classifier in $\mathbb{R}^d$ that we can shat any set of linearly independent points.  For a d-dimensional space, we can have d+1 linearly independent points.  Therefore, for any linear classifier in high-dimensional space the VC-dimension is $d+1$, where $d$ is the dimensionality of the space.  Since a linear perceptron is in fact a linear classifier, then this theorem applies.  Therefore, for any linear perceptron, $\theta$ in $\mathbb{R}^d$ space, we have $VC(\theta) = d + 1$.
+
+% PartC
+We want to find the VC-dimension of a class of circles on points in the space $\mathbb{R}^2$.  Assume we have 2 points, to shatter the points then we simply place our circle on one of the points small enough so the other point does not lie within it, and they are shattered.  Now, let's assume that we have 3 points in $\mathbb{R}^2$, where none of the points are equal to one another.  Therefore, we will have two points of either positive or negative class, and one of the other classes.  We can shatter these points by choosing a circle of radius $d$ around the point with only one class called $x_1$, s.t. $d<\underset{x}{\operatorname{argmin}}(dist(x_1,x_2),(dist(x_1,x_3))$.  Thus, we have now shattered three points. Finally, let's attempt to shatter 4 points.  We place 4 points in the space, and then the opponent labels the points, but he/she labels the points such that there are 2 positive, and 2 negative points.  Let's call these points, (x_{+1},x_{+2},x_{-1},x_{-2}).  We choose points anywhere within the radius as described by the shattering procedure, but the opponent chooses the labeling of points, such that (
+
 
 \section{Problem 2}
 
@@ -119,16 +137,16 @@ Since the exponent of the above multiplication of the kernels also only depends 
 For the second part of this problem, we will explicitly find the $\phi$ function such that $K(x_1,x_2) = \phi(x_1)^t\phi(x_2) =  e^{(-|||x_1-x_2||^2}$.  We will use the taylor series expansion equality as follows in the proof below, $e^{-2x_1x_2} = \sum \limits_{k=0}^\infty \frac{2^kx_1^kx_2^k}{k!}$. 
 
 \begin{align}
-K(x_1,x_2) &= \phi(x_1)^t\phi(x_2) \\
-&= e^{-||x_1-x_2||^2} \\
+K(x_1,x_2) &= e^{-||x_1-x_2||^2} \\
 &= e^{-(x_1-x_2)(x_1-x_2)}\\
-&= e^{-(x_1^{2} + x_2^{2} + 2x_1x_2)} \\
-&= e^{-x_1^{2}}e^{-x_2^{2}}e^{-2x_1x_2} \\
+&= e^{-(x_1^{2} + x_2^{2} - 2x_1x_2)} \\
+&= e^{-x_1^{2}}e^{-x_2^{2}}e^{2x_1x_2} \\
 &= e^{-x_1^{2}}e^{-x_2^{2}} \sum \limits_{k=0}^\infty \frac{2^kx_1^kx_2^k}{k!} \\
-&= e^{-x_1^{2}}e^{-x_2^{2}}\sum \limits_{k=0}^\infty \frac{2^{k}}{k!}x_1^kx_2^k
+&= e^{-x_1^{2}}e^{-x_2^{2}}\sum \limits_{k=0}^\infty \frac{2^{k}}{k!}x_1^kx_2^k \\
+&= \phi(x_1)^t\phi(x_2)
 \end{align}
 
-Thus, $\phi(x) = e^-x^2\sum \limits_{k=0}^\infty \frac{2^{k/2}}{\sqrt{k!}}x^k$.
+Thus, $\phi_k(x) = e^{-x^2}\frac{2^{k/2}}{\sqrt{k!}}x^k$, where $\phi(x) = (\phi_1(x),\phi_2(x),...,\phi_\infty(x))$.
 
 \section{Problem 3}
 
@@ -139,7 +157,7 @@ We define our kernel function $K(x_i,x_j) = F(x_i^tx_j,\lambda=0.75,k=3)$, where
 When we integrate $(f(x,\lambda,k)$, we get for the indefinite integral, 
 
 \begin{align}
-\int f(x,\lambda,k) \,dx = F(x,\lambda,k) = -e^{(\frac{x}{l})^k}.
+\int f(x,\lambda,k) \,dx = F(x,\lambda,k) = -e^{(\frac{x}{\lambda})^k}.
 \end{align}
 
 Therefore, using this knowledge and computing the definite integral between two points, we created a Matlab script to calculate the desired gram matrix.
@@ -162,9 +180,9 @@ We performed cross-validation across the data-set using a 50-50 train and test s
 We performed cross-validation with 10 random splits for each parameter to show the performance of the SVM with each different kernel.
 Given the proper parameters we were able to get 100\% accuracy using each of the described kernels, and this is because the data provided to us was seperable.  
 Figure ~\ref{fig:plot_2d} shows the positive and negative samples from our dataset plotted with respect to their first two dimensions.
-We can see that they are seperable through a linear svm.
+We can see that they are seperable through a linear classifier.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{serperability.jpg}
 \caption{Plot of the 1st and 2nd dimensions of the dataset}
