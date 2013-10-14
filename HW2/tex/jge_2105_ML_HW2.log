@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  14 OCT 2013 11:06
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  14 OCT 2013 11:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -362,43 +362,50 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-
-<serperability.jpg, id=28, 562.1pt x 421.575pt>
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<Slide1.jpg, id=17, 722.7pt x 542.025pt>
+File: Slide1.jpg Graphic file (type jpg)
+ <use Slide1.jpg>
+Package pdftex.def Info: Slide1.jpg used on input line 99.
+(pdftex.def)             Requested size: 289.07487pt x 216.80615pt.
+ [2 <./Slide1.jpg>]
+[3] [4] <serperability.jpg, id=32, 562.1pt x 421.575pt>
 File: serperability.jpg Graphic file (type jpg)
- <use serperability.jpg>
-Package pdftex.def Info: serperability.jpg used on input line 187.
-(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
 
-<linear.jpg, id=29, 562.1pt x 421.575pt>
-File: linear.jpg Graphic file (type jpg)
- <use linear.jpg>
-Package pdftex.def Info: linear.jpg used on input line 198.
+<use serperability.jpg>
+Package pdftex.def Info: serperability.jpg used on input line 194.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
- [4 <./serperability.jpg>] <RBF2.jpg, id=33, 562.1pt x 421.575pt>
+ <linear.jpg, id=33, 562.1pt x 421.575pt>
+File: linear.jpg Graphic file (type jpg)
+
+<use linear.jpg>
+Package pdftex.def Info: linear.jpg used on input line 205.
+(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
+ <RBF2.jpg, id=34, 562.1pt x 421.575pt>
 File: RBF2.jpg Graphic file (type jpg)
  <use RBF2.jpg>
-Package pdftex.def Info: RBF2.jpg used on input line 205.
+Package pdftex.def Info: RBF2.jpg used on input line 212.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
 
-<Ploy.jpg, id=34, 562.1pt x 421.575pt>
+<Ploy.jpg, id=35, 562.1pt x 421.575pt>
 File: Ploy.jpg Graphic file (type jpg)
  <use Ploy.jpg>
-Package pdftex.def Info: Ploy.jpg used on input line 212.
+Package pdftex.def Info: Ploy.jpg used on input line 219.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
- [5 <./linear.jpg> <./RBF2.jpg>] [6 <./Ploy.jpg>] (./jge_2105_ML_HW2.aux)
+ [5 <./serperability.jpg>] [6 <./linear.jpg> <./RBF2.jpg>] [7 <./Ploy.jpg>] (./
+jge_2105_ML_HW2.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4480 strings out of 493488
- 62797 string characters out of 3141326
- 240428 words of memory out of 3000000
- 7682 multiletter control sequences out of 15000+200000
+ 4486 strings out of 493488
+ 62882 string characters out of 3141326
+ 242436 words of memory out of 3000000
+ 7687 multiletter control sequences out of 15000+200000
  23942 words of font info for 71 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 47i,14n,47p,964b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,14n,47p,1435b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
@@ -416,10 +423,10 @@ ve/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive
 /2012/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2
 012/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/201
 2/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb>
-Output written on jge_2105_ML_HW2.pdf (6 pages, 294455 bytes).
+Output written on jge_2105_ML_HW2.pdf (7 pages, 328403 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
