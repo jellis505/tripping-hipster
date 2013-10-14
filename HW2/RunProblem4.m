@@ -11,11 +11,13 @@ function [accuracy] = RunProblem4( dataset_path, type_of_svm, C , p1 )
 %       - C = the cost value that is used in the SVM.
 %       - p1 = kernel input parameter, for poly this is the
 %       degree of the polynomial, and rbf it is the value of sigma, and can
-%       be anything for linear.
+%       be anything for linear, it is not used in linear classification.
 %   Outputs:
 %       - accuracy = The accuracy across the 10-fold cross-val trials
 
-% Add the path to the svm library
+% Add the path to the svm library that was downloaded.  Some of these files
+% were altered, so it has the be the svm library that came zipped up with
+% my code.
 addpath('svm')
 
 % This loads our dataset into the path
@@ -68,6 +70,7 @@ for j = 1:num_trials
     
 end
 
+% This finds the average of these values across the trials
 correct = sum(correct_list)/length(correct_list);
 nsv_sum = sum(num_support_vecs)/length(num_support_vecs);
 accuracy = correct;
@@ -76,7 +79,7 @@ accuracy = correct;
 output_string = sprintf('Classification: %f',correct);
 disp(output_string)
 
-% Output the accuracy to the screen
+% Output the number of support vectors to the screen
 output_string = sprintf('# of support vectors: %f',nsv_sum);
 disp(output_string)
 
