@@ -75,7 +75,7 @@
 
 \section{Problem 1}
 
-
+In this problem we address multiple issues with the 
 
 \section{Problem 2}
 
@@ -116,16 +116,19 @@ K_{mult}(x,z) &= K_e(x,z)K_g(x,z) \\
 
 Since the exponent of the above multiplication of the kernels also only depends on the value $x-z$, we have shown that these are also stationary under multiplication.
 
-For the second part of this problem, we will explicitly find the $\phi$ function such that $K(x_1,x_2) = \phi(x_1)^t\phi(x_2) =  e^{(-|||x_1-x_2||^2}$.
+For the second part of this problem, we will explicitly find the $\phi$ function such that $K(x_1,x_2) = \phi(x_1)^t\phi(x_2) =  e^{(-|||x_1-x_2||^2}$.  We will use the taylor series expansion equality as follows in the proof below, $e^{-2x_1x_2} = \sum \limits_{k=0}^\infty \frac{2^kx_1^kx_2^k}{k!}$. 
 
 \begin{align}
 K(x_1,x_2) &= \phi(x_1)^t\phi(x_2) \\
 &= e^{-||x_1-x_2||^2} \\
 &= e^{-(x_1-x_2)(x_1-x_2)}\\
-&= e^{-(x_1^{2} + x_2^{2} + 2x_1x_2)}
+&= e^{-(x_1^{2} + x_2^{2} + 2x_1x_2)} \\
+&= e^{-x_1^{2}}e^{-x_2^{2}}e^{-2x_1x_2} \\
+&= e^{-x_1^{2}}e^{-x_2^{2}} \sum \limits_{k=0}^\infty \frac{2^kx_1^kx_2^k}{k!} \\
+&= e^{-x_1^{2}}e^{-x_2^{2}}\sum \limits_{k=0}^\infty \frac{2^{k}}{k!}x_1^kx_2^k
 \end{align}
 
-
+Thus, $\phi(x) = e^-x^2\sum \limits_{k=0}^\infty \frac{2^{k/2}}{\sqrt{k!}}x^k$.
 
 \section{Problem 3}
 
