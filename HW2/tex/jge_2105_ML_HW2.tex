@@ -92,7 +92,7 @@ Thus, we have  shown that $VC(H) \leq log_2|H|$, as desired.
 In this problem we address a linear perceptron in $\mathbb{R}^d$, and find its VC-dimension.  We want to find the number of points that a perceptron can shatter in this dimension, so let's analyze.  We know that a linear perceptron in $\mathbb{R}^2$, can shatter 3 points.  However, we know from slide \#7 in Topic \#5 slides that for any high-dimensional linear classifier in $\mathbb{R}^d$ that we can shat any set of linearly independent points.  For a d-dimensional space, we can have d+1 linearly independent points.  Therefore, for any linear classifier in high-dimensional space the VC-dimension is $d+1$, where $d$ is the dimensionality of the space.  Since a linear perceptron is in fact a linear classifier, then this theorem applies.  Therefore, for any linear perceptron, $\theta$ in $\mathbb{R}^d$ space, we have $VC(\theta) = d + 1$.
 
 % PartC
-We want to find the VC-dimension of a class of circles on points in the space $\mathbb{R}^2$.  Assume we have 2 points, to shatter the points then we simply place our circle on one of the points small enough so the other point does not lie within it, and they are shattered.  Now, let's assume that we have 3 points in $\mathbb{R}^2$, where none of the points are equal to one another.  Therefore, we will have two points of either positive or negative class, and one of the other classes.  We can shatter these points by choosing a circle of radius $d$ around the point with only one class called $x_1$, s.t. $d<\underset{x}{\operatorname{argmin}}(dist(x_1,x_2),(dist(x_1,x_3))$.  Thus, we have now shattered three points. Finally, let's attempt to shatter 4 points.  We place 4 points in the space, and then the opponent labels the points, but he/she labels the points such that there are 2 positive, and 2 negative points.  Let's call these points, $(x_{+1},x_{+2},x_{-1},x_{-2})$.  If we choose three points to be in a line equi-distant from each other as seen below with one equidistant but directly above the top point, we can shatter any combination of these points with a circle. This is shown in Figure ~\ref{fig:shattering}.  Therefore, we have shattered 4 points.  However, 5 points in any formation are unshatterable by a circle in $\mathbb{R}^2$, therefore we have $VC(circles) = 4$.
+We want to find the VC-dimension of a class of circles on points in the space $\mathbb{R}^2$.  Assume we have 2 points, to shatter the points then we simply place our circle on one of the points small enough so the other point does not lie within it, and they are shattered.  Now, let's assume that we have 3 points in $\mathbb{R}^2$, where none of the points are equal to one another.  Therefore, we will have two points of either positive or negative class, and one of the other classes.  We can shatter these points by choosing a circle of radius $d$ around the point with only one class called $x_1$, s.t. $d<\underset{x}{\operatorname{argmin}}(dist(x_1,x_2),(dist(x_1,x_3))$.  Thus, we have now shattered three points. Finally, let's attempt to shatter 4 points.  We place 4 points in the space, and then the opponent labels the points, but he/she labels the points such that there are 2 positive, and 2 negative points.  Let's call these points, $(x_{+1},x_{+2},x_{-1},x_{-2})$.  If we choose three points to be in a line equi-distant from each other as seen below with one equidistant but directly above the top point, we can shatter any combination of these points with a circle. This is shown in Figure ~\ref{fig:shattering}.  Therefore, we have shattered 4 points.  However, 5 points in any formation are unshatterable by a circle in $\mathbb{R}^2$, therefore we have $VC(circles) = 4$.  For the below example of 5 points, an unshatterable labeling would be to label all points in a line one label, and then the outer points would have the opposite label.
 
 \begin{figure}[h]
 \centering
@@ -119,7 +119,10 @@ k(x_1,x_2) = <\phi(x_i),\phi(x_2)> = \left\{
 
 Both of these are mercer kernels, because they both output scalar values, for both conditions.
 Let's assume that $\phi$ is finite, and then we know that on the top of the exponential function we have a magnitude which is scalar divided by a scalar parameter $\theta$ which yields some scalar output value.
-We also, know that the integral of the kernel provided is bounded due to the nature of the gaussian and exponential kernel, and therefore $\int_t \phi(x_i,t)\phi(x_2,t)$, is also bounded.  Therefore, both are mercer kernels.
+We also, know that the integral of the kernel provided is bounded due to the nature of the gaussian and exponential kernel, and therefore $\int_t \phi(x_i,t)\phi(x_2,t)$, is also bounded.  
+It is shown in second section of this problem also that the gaussian kernel without sigma can be broken down into the inner product of two functions $\phi$.
+The break down of both the gaussian and exponential kernels can be found in the same way, and therefore they satisfy the fact that they are kernels.
+Therefore, both are mercer kernels.
 
 Now let's show that both of these are stationary kernels.  We will translate both of the elements by adding some arbitrary variable $k$, which is of the same dimensionality of the inputs $x_1$ and $x_2$.  Therefore, for any k we want to show that the kernels are stationary under sum and product.  First, assume we sum the kernels together,
 
@@ -141,7 +144,7 @@ K_{mult}(x,z) &= K_e(x,z)K_g(x,z) \\
 
 Since the exponent of the above multiplication of the kernels also only depends on the value $x-z$, we have shown that these are also stationary under multiplication.
 
-For the second part of this problem, we will explicitly find the $\phi$ function such that $K(x_1,x_2) = \phi(x_1)^t\phi(x_2) =  e^{(-|||x_1-x_2||^2}$.  We will use the taylor series expansion equality as follows in the proof below, $e^{-2x_1x_2} = \sum \limits_{k=0}^\infty \frac{2^kx_1^kx_2^k}{k!}$. 
+For the second part of this problem, we will explicitly find the $\phi$ function such that $K(x_1,x_2) = \phi(x_1)^t\phi(x_2) =  e^{(-|||x_1-x_2||^2)}$.  We will use the taylor series expansion equality as follows in the proof below, $e^{2x_1x_2} = \sum \limits_{k=0}^\infty \frac{2^kx_1^kx_2^k}{k!}$. 
 
 \begin{align}
 K(x_1,x_2) &= e^{-||x_1-x_2||^2} \\
@@ -167,7 +170,7 @@ When we integrate $(f(x,\lambda,k)$, we get for the indefinite integral,
 \int f(x,\lambda,k) \,dx = F(x,\lambda,k) = -e^{(\frac{x}{\lambda})^k}.
 \end{align}
 
-Therefore, using this knowledge and computing the definite integral between two points, we created a Matlab script to calculate the desired gram matrix.
+Therefore, using this knowledge and computing the definite integral between $0$ and $x$, we created a Matlab script to calculate the desired gram matrix, which is submitted and called ``ComputeProb3.m''.
 The gram matrix can be seen here, 
 
 \[ \left( \begin{array}{ccccc}
@@ -225,6 +228,9 @@ As you can see, we have found parameters for each type of kernel that achieves m
 However, the kernel that in general used the least amount of support vectors, and was quickest in classification was the linear SVM.
 Therefore, for this particular classification task I would reccomend using the linear SVM with $C=10$.
 However, if the dataset is more difficult and not linearly seperable we would instead need to focus on using a more flexible kernel function such as the RBF.
+
+
+
 
 
 \end{document}
