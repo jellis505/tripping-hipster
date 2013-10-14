@@ -12,6 +12,12 @@ Running the Program:
 Data Files:
 -All of the data that is needed to run the programs, which are the three mat files "dataset1a.mat", "dataset1b.mat", and "dataset2.mat" are in the zipped file in the data directory.
 
+Running the Programs without Data Directory:
+- Included are three functions that take the input paths to run the values for each problem.
+    - These are run_Problem1_func, run_Problem2_func,run_Problem3_func.
+    - Each of these files you pass the filepath of the necessary text file for 1 and 2 or mat file for #3.
+    - They run the same as described above but do not depend on hard-coded paths.
+
 Contact:
 - If you have any difficulty running any of the programs please let me know, I can be reached at the email stated above.
 

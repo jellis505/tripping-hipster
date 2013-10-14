@@ -11,8 +11,8 @@ load('Data/dataset2.mat');
 
 % Let's implement stochastic gradient descent to find the minimum of the
 % logistic loss function
-eta_step = 10;
-epsilon_tolerance = .001;
+eta_step = 100;
+epsilon_tolerance = .1;
 theta = rand(1,size(X,2));
 
 %Now let's use gradient descent to find the optimum solution
@@ -33,7 +33,8 @@ while (theta_diff > epsilon_tolerance)
     Loss = RempLoss(X,Y,theta);
     theta_diff = norm(theta-old_theta);
     
-    % These vectors hold the loss and binary classification error
+    % These vectors hold the loss, binary classification error, and theta
+    % difference
     Loss_vec(counter) = Loss;
     Bin_Class_Err(counter) = BinClassErr(X,Y,theta);
     theta_diff_vector(counter) = theta_diff;

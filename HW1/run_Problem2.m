@@ -46,8 +46,8 @@ for i = 1:length(k)
 end
 
 for i = 1:length(k)
-    output_string = sprintf('The error for k = %d is %f',k(i)-1,cross_val_errs_across_tests(i));
-    disp(output_string)
+    %output_string = sprintf('The error for k = %d is %f',k(i)-1,cross_val_errs_across_tests(i));
+    %disp(output_string)
 end
 
 % This portion shows the fit of the 

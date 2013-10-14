@@ -75,7 +75,7 @@
 
 \section{Problem 1}
 
-In this problem we investigate fitting a polynomial model and regression to a dataset consiting of 10 data points.  
+In this problem we investigate fitting a polynomial model regression to a dataset consiting of 10 data points.  
 Our $d$-dimensional polynomail function, $f$, is described below, 
 
 \begin{align} 
@@ -83,14 +83,14 @@ f(x;\bm{\theta}) = \bm{\theta}_{0}	+ \bm{\theta}_{1}x_{1} + \bm{\theta}_{2}x_{2}
 \end{align}
 
 where $\bm{\theta}$ is the learned parameters of our model, and $x$ is a given data point.
-We choose to use squared error for our empirical loss function to gauge how well our model fits the data present.  The equation for empirical loss can be seen below, where $x$ represents the given data points, $y$ represents the output, which our function $f$ is attempting to solve for.
+We choose to use squared error for our empirical loss function to gauge how well our model fits the data.  The equation for empirical loss can be seen below, where $x$ represents the given data points, $y$ represents the output, which our function $f$ is attempting to solve for.
 
 \begin{align} 
 R_{emp}(\bm{\theta}) = \frac{1}{N}\sum\limits_{i=1}^n (y_{i} - f(x_{i};\bm{\theta}))^{2}
 \end{align}
 
 We perform cross-validation to find the adequate dimensionality of an appropriate model.  
-The cross-validation performed is completed 1000 times for each model complexity with train/test split of 9 points for training and 1 point for testing.  The results of the cross-validation can be seen in Figure \ref{fig:Prob1_cross_val}, and we can see that a model of 4 or 5 dimesions is suitable for this dataset. 
+The cross-validation performed is completed 1000 times for each model complexity with train/test split of 9 points for training and 1 point for testing.  The results of the cross-validation can be seen in Figure \ref{fig:Prob1_cross_val}, and we can see that a model of 3 or 4 dimesions is suitable for this dataset. 
 
 \begin{figure}
 \centering
@@ -99,34 +99,31 @@ The cross-validation performed is completed 1000 times for each model complexity
 \label{fig:Prob1_cross_val}
 \end{figure}
 
-Models with lower than 3-dimensions have a hard time describing the variation in the data, where as models with many more than 3-dimensions tend to overfit. Examples of chosen $f$ of dimension 0,1,2, and 8 can be seen in Figure. \ref{fig:manyplots}.
+Models with lower than 3-dimensions have a hard time describing the variation in the data, where as models with many more than 3-dimensions tend to overfit. Examples of chosen $f$ of dimension 0,1,3, and 7 can be seen in Figure. \ref{fig:manyplots}.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{manyplots.jpg}
-\caption{Polynomial Fits of dimensionality, 1, 2, 3, and 8}
+\caption{Polynomial Fits of dimensionality, 0, 1, 3, and 7}
 \label{fig:manyplots}
 \end{figure}
 
-Using the 3-dimensional model for $f$ we achieve the best polynomial regression function with  with $R_{emp}(\bm{\theta}) = 0.0046$, and $\bm{\theta} = (0.1951, 5.4884, -19.6041, 14.9130)$.
-
+Using the 3-dimensional model for $f$ we achieve the best polynomial regression function with  $R_{emp}(\bm{\theta}) = 0.0046$, and $\bm{\theta} = (0.1951, 5.4884, -19.6041, 14.9130)$.
 The model values for each of these curves can be seen in Table \ref{tab:prob1_models}.
+The plot of the polynomial that was found to fit the data set can be seen in Figure \ref{fig:prob1_curve1}.
 
 \begin{table}
 \label{tab:prob1_models}
 \caption{Model Values for Problem 1 Polynomial Regression}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
-d = 1 & 0.259&0 &0 &0 &0 &0 &0 & 0\\ \hline
-d = 2 & -0.404 &0.451 &0 &0 &0 &0 &0 & 0\\ \hline
-d = 3 & 2.223 &-2.695&0.816 &0 &0 &0 &0 & 0\\ \hline
-d = 8 & -1159.6&4220.0 &-6093.68&4426.87&-1683.94 &309.74&-21.80 & 0.744\\
+d = 0& 0.259&0 &0 &0 &0 &0 &0 & 0\\ \hline
+d = 1 & 0.451 & -0.404&0 &0 &0 &0 &0 & 0\\ \hline
+d = 3 & 0.195 &5.448&-19.6041 &14.9130&0 &0 &0 & 0\\ \hline
+d = 7 & 0.744&-21.80 &309.74&-1683.94&4426.87 &-6093.68&4220.0 &-1159.6 \\
 \hline
 \end{tabular}
 \end{table}
-
-
-The plot of the polynomial that was found to fit the data set can be seen in Figure \ref{fig:prob1_curve1}.
 
 \begin{figure}
 \centering
@@ -144,12 +141,12 @@ f(x;\bm{\theta}) = \theta_{0} +\sum\limits_{i=1}^k \theta_{i}sin(i*x) + \sum\lim
 \end{align}
 
 and these are known as sinusoidal basis functions.
-The calculation of the sinusoidal regression function shown above was completed in the  ``sinusoidalreg.'' program, which was handed in with this assignment.  
+The calculation of the sinusoidal regression function shown above was completed in the  ``sinusoidalreg.m'' program, which was handed in with this assignment.  
 The $R_{emp}(\bm{\theta})$ was calculated in the same way as above.
 For this problem we once again used 1-dimensional input data with real valued output variables from ``dataset1b.txt'' that was provided to us.
 For this dataset the first 100 elements from dataset1b were used for training and the second 100 were used for testing.
-We completed 100-fold cross validation across the training set using a training/test split of 80 points for training and 20 for test to determine what was a good complexity for to model these data points.
-A plot of the cross-validation accuracies can be seen below in Figure \ref{fig:prob2_crossvalerrors}.
+We completed 100-fold cross validation across the training set using a training/test split of 80 points for training and 20 for test to determine what was a good complexity to model these data points.
+A plot of the cross-validation accuracies can be seen in Figure \ref{fig:prob2_crossvalerrors}.
 
 \begin{figure}
 \centering
@@ -196,7 +193,7 @@ We define a stepsize as $\eta = 100$, and then update our $\bm{\theta}$ after ev
 \end{align}
 
 This algorithm completes once $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t| < \epsilon$, where we have chosen $\epsilon = 0.1$. 
-Using the gradient descent algorithm we were able to achieve a perfect binary classification error on the given dataset, and our algorithm converges to a solution after only 80 iterations.
+Using the gradient descent algorithm we were able to achieve a perfect binary classification error on the given dataset, and our algorithm converges to a solution after approximately 80 iterations.
 The $\eta$ chosen allowed for very aggresive steps, and with this our Loss and binary error had some level of oscillation throughout the process.
 Our final found normalized parameters give $\bm{\theta}  = (-0.319, 0.836, 0.444)$, with a $R_{emp}(\bm{x};\bm{\theta}) = 0.0146$ 
 In Figure \ref{fig:classifier}, we can see the  final linear logistic classifier imposed on top of our dataset, which shows the classification scheme.
@@ -208,7 +205,8 @@ In Figure \ref{fig:classifier}, we can see the  final linear logistic classifier
 \label{fig:classifier}
 \end{figure}
 
-Figure \ref{fig:loss} demonstrates how the $R_{emp}(\bm{\theta})$ varies over the iteration process, notice the oscillations due to the large step size.
+Figure \ref{fig:loss} demonstrates how the $R_{emp}(\bm{\theta})$ varies over the iteration process, notice the oscillations due to the large step size.  Figure \ref{fig:BinErr} shows how the Binary Classification error changes throughout the process.
+The $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t|$ measure can be seen for every step in the iteration in Figure \ref{fig:thetadiff}.
 
 \begin{figure}
 \centering
@@ -217,16 +215,12 @@ Figure \ref{fig:loss} demonstrates how the $R_{emp}(\bm{\theta})$ varies over th
 \label{fig:loss}
 \end{figure}
 
-Figure \ref{fig:BinErr} shows how the Binary Classification error changes throughout the process.
-
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{BinClassErr.jpg}
 \caption{Binary Classification Error throughout the Gradient Descent}
 \label{fig:BinErr}
 \end{figure}
-
-The $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t|$ measure can be seen for every step in the iteration in Figure \ref{fig:thetadiff}.
 
 \begin{figure}
 \centering
@@ -236,8 +230,10 @@ The $| \bm{\theta} ^{t+1} -  \bm{\theta} ^t|$ measure can be seen for every step
 \end{figure}
 
 It should be noted that if a smaller $\eta$ was chosen the plots 7-9 would have less oscillation within them.
-It is also true that we could possible find a ``better'' solution if we allowed for smaller $\epsilon$, but it would take longer to converge.
-A trade-off between speed and finding the best possible solution does exist with gradient descent.
+We experimented with other values of $\eta$ and $\epsilon$, and although the other values allowed for smoother descent they also took longer to converge.
+This trade-off can be changed and altered based on the situation or use of the algorithm.
+It is also true that we could possibly find a ``better'' solution if we allowed for smaller $\epsilon$, but it would take longer to converge.
+A trade-off between speed and finding the best possible solution does exist with gradient descent, and in these examples we have tried to minimize time to convergence, although the graphs could looks lightly different if other elements of the process were prioritized.
 
 \section{Problem 4}
 
@@ -259,7 +255,7 @@ Based on the proof shown above we will show that the inverse of the logistic squ
 g^{-1}(y) &= g^{-1}(g(z)) \\
 &= ln(\frac{g(z)}{1-g(z)}) \\
 &= ln(\frac{g(z)}{g(-z)}) \\
-&= ln(\frac{\frac{e^{z}}{e^{z}+1}}{\frac{e^{z}}{e^{z}+1}}) \\
+&= ln(\frac{\frac{e^{z}}{e^{z}+1}}{\frac{e^{-z}}{e^{-z}+1}}) \\
 &= ln(\frac{e^z + 1}{e^{-z} + 1})\\
 &= ln(\frac{e^{z}(e^{-z}+1)}{e^{-z}+1})\\
 &= ln(e^{z})\\
