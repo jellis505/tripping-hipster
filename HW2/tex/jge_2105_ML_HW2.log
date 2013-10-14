@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  14 OCT 2013 13:05
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  14 OCT 2013 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -373,24 +373,24 @@ Package pdftex.def Info: Slide1.jpg used on input line 99.
 File: serperability.jpg Graphic file (type jpg)
 
 <use serperability.jpg>
-Package pdftex.def Info: serperability.jpg used on input line 197.
+Package pdftex.def Info: serperability.jpg used on input line 198.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
  <linear.jpg, id=33, 562.1pt x 421.575pt>
 File: linear.jpg Graphic file (type jpg)
 
 <use linear.jpg>
-Package pdftex.def Info: linear.jpg used on input line 208.
+Package pdftex.def Info: linear.jpg used on input line 209.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
  <RBF2.jpg, id=34, 562.1pt x 421.575pt>
 File: RBF2.jpg Graphic file (type jpg)
  <use RBF2.jpg>
-Package pdftex.def Info: RBF2.jpg used on input line 215.
+Package pdftex.def Info: RBF2.jpg used on input line 216.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
 
 <Ploy.jpg, id=35, 562.1pt x 421.575pt>
 File: Ploy.jpg Graphic file (type jpg)
  <use Ploy.jpg>
-Package pdftex.def Info: Ploy.jpg used on input line 222.
+Package pdftex.def Info: Ploy.jpg used on input line 223.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
  [5 <./serperability.jpg>] [6 <./linear.jpg> <./RBF2.jpg>] [7 <./Ploy.jpg>] (./
 jge_2105_ML_HW2.aux)
@@ -423,7 +423,7 @@ ve/2012/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive
 /2012/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2
 012/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/201
 2/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb>
-Output written on jge_2105_ML_HW2.pdf (7 pages, 330353 bytes).
+Output written on jge_2105_ML_HW2.pdf (7 pages, 329765 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  67 compressed objects within 1 object stream

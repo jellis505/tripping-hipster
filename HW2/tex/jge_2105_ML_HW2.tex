@@ -124,7 +124,8 @@ It is shown in second section of this problem also that the gaussian kernel with
 The break down of both the gaussian and exponential kernels can be found in the same way, and therefore they satisfy the fact that they are kernels.
 Therefore, both are mercer kernels.
 
-Now let's show that both of these are stationary kernels.  We will translate both of the elements by adding some arbitrary variable $k$, which is of the same dimensionality of the inputs $x_1$ and $x_2$.  Therefore, for any k we want to show that the kernels are stationary under sum and product.  First, assume we sum the kernels together,
+Now let's show that both of these are stationary kernels if they are summed or multiplied together.  
+First, assume we sum the kernels together,
 
 \begin{align}
 K_{sum}(x,z) &= K_e(x,z)+K_g(x,z) \\
@@ -161,7 +162,7 @@ Thus, $\phi_k(x) = e^{-x^2}\frac{2^{k/2}}{\sqrt{k!}}x^k$, where $\phi(x) = (\phi
 \section{Problem 3}
 
 For this problem we calculated the gram matrix for a given kernel $f(x,\lambda,k)$.
-We define $f(x,\lambda,k)$ as $0$ for $x < 0$, and $f(x,k,\lambda)=(\frac{k}{\lambda})(\frac{x}{\lambda})^{k-1}(e^{-(\frac{x}{\lambda})^k})$.
+We define $f(x,\lambda,k)$ as $0$ for $x < 0$, and $f(x,\lambda,k)=(\frac{k}{\lambda})(\frac{x}{\lambda})^{k-1}(e^{-(\frac{x}{\lambda})^k})$.
 We define our kernel function $K(x_i,x_j) = F(x_i^tx_j,\lambda=0.75,k=3)$, where $F(x,\lambda,k) =\int^x_0 f(x,\lambda,k)\,dx$. 
 
 When we integrate $(f(x,\lambda,k)$, we get for the indefinite integral, 
@@ -185,7 +186,7 @@ This is the gram matrix for the points given in problem 3.
 \section{Problem 4}
 
 Here we create an object recognition system using SVM for classification.
-Multiple different SVM kernels were chosen and evaluated, and all of the kernels chosen were able to perform well with the proper parameters.  
+Multiple SVM kernels were chosen and evaluated, and all of the kernels chosen were able to perform well with the proper parameters.  
 We performed cross-validation across the data-set using a 50-50 train and test split for the sample data points.
 We performed cross-validation with 10 random splits for each parameter to show the performance of the SVM with each different kernel.
 Given the proper parameters we were able to get 100\% accuracy using each of the described kernels, and this is because the data provided to us was seperable.  
@@ -201,7 +202,7 @@ We can see that they are seperable through a linear classifier.
 
 For classification we used linear, RBF, and polynomial SVM with different values for the cost variable (C), and the number of degrees for the polynomial function and the size of sigma in the RBF.
 Each of these paramters effected the classification accruacy, but proper parameters for each kernel scheme could be found.
-The results of a different parameters can be seen in the upcoming figures.
+The results of a different parameters can be seen in the upcoming figures, where accuracy is on the z-axis, and the x and y axis are the independent variables.
 
 \begin{figure}
 \centering
@@ -225,7 +226,6 @@ The results of a different parameters can be seen in the upcoming figures.
 \end{figure}
 
 As you can see, we have found parameters for each type of kernel that achieves maximum accuracy. 
-
 However, the complexity of each of the kernels was not all the same.  
 To do a quick analysis we used some of the kernel adn parameters that had the best possible classification accuracy on our dataset, and then analyzed how many support vectors each learned classifier used.
 The results can be seen below in Table 1.
@@ -248,7 +248,6 @@ RBF sigma=1 & .01 & 50 \\ \hline
 The kernel that in general used the least amount of support vectors, and was quickest in classification was the linear SVM.
 Therefore, for this particular classification task I would reccomend using the linear SVM with $C=10$.
 However, if the dataset is more difficult and not linearly seperable we would instead need to focus on using a more flexible kernel function such as the RBF.  
-However, for this dataset using a more complicated kernel function appears to be overkill.
 
 
 
