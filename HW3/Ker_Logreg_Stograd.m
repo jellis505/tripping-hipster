@@ -1,4 +1,4 @@
-function [ w ] = Ker_Logreg_Stograd( TrainX,TrainY,K_gram,Reg_Penalty,p,eta )
+function [ w,Cost,iter ] = Ker_Logreg_Stograd( TrainX,TrainY,K_gram,Reg_Penalty,p,eta )
 %Ker_Logreg_Stograd = This function performs the training using stochastic
 %gradient descent, and randomly choosing the elements to use in the descent
 %algorithm
@@ -7,12 +7,15 @@ function [ w ] = Ker_Logreg_Stograd( TrainX,TrainY,K_gram,Reg_Penalty,p,eta )
 % Choose randomly the training points
 
 % This is the threshold for stopping the gradient descent
-thresh = 2.5;
-grad_mag = 100;
+thresh = .001;
 num_points = size(TrainX,1);
 w = rand(num_points,1);
-while grad_mag > thresh
-
+Cost = zeros(1,1002);
+Cost(1) = 1000;
+iter = 1;
+Cost_Diff = 1000;
+while (Cost_Diff > thresh) && (iter < 3000)
+    iter = iter+1;
     % These are the points to traing the stochastic descent with
     batch_points = randperm(num_points,p);
     % Loop through each of the batch points
@@ -39,9 +42,14 @@ while grad_mag > thresh
     w = w + eta*gradient;
     
     % Calculate the cost function
-    Cost = -sum((1/(1+exp(-TrainY.*(w'*K_gram)')))) + Reg_Penalty.*w'*w
+    Cost(iter) = -sum((1/(1+exp(-TrainY.*(w'*K_gram)')))) + Reg_Penalty.*w'*w;
+    Cost_Diff = Cost(iter-1) - Cost(iter);
+    Cost(iter)
     
+
     
+end
+
     % Now let's find the classifier error
     correct = 0;
     for k = 1:num_points
@@ -60,8 +68,7 @@ while grad_mag > thresh
             correct = correct + 1;
         end
     end
-    accuracy = correct/num_points
-    
-end
+    train_accuracy = correct/num_points
+
 
 end

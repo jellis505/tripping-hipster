@@ -100,9 +100,214 @@ p(\mu=\frac{3}{4}|D) &= \frac{(\mu)^{N_{H}}(1-\mu)^{N_{T}}}{\sum\limits_{\mu} (\
 
 Use the two datasets, and answer a variety of questions for each, $D_1 = (H,T)$; $D_2 = (T,T,T)$.
 
-\subsubsection{A -- 1}
+We will use the following arguments with the beta distribution.
 
+\begin{align}
+Beta(\mu,a,b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}(1-\mu)^{a-1}\mu^{b-1} \\
+E(Beta(\mu) ) = \frac{a}{a+b} \\
+Var(Beta(\mu) ) = \frac{ab}{(a+b)^2(a+b+1)} \\
+\Gamma(n) = (n-1)!
+\end{align}
+
+
+\subsubsection{A -- 1}
+\paragraph{P(H) given the prior}
+The probability of $p(H) = \int_{\mu} p(H|\mu)p(\mu)$, and since $\mu$ is uniform then we know that the $p(\mu) =1$, because the area under the prior must integrate to 1 to be a true probability distribution.  Therefore, we have
+
+\begin{align}
+p(H) &= \int_{\mu} p(H|\mu)p(\mu) \\
+p(H) &= \int_{\mu} p(H|\mu) \\
+p(H) &= \frac{\mu^2}{2} |_{0}^{1} \\
+p(H) &= \frac{1}{2}.
+\end{align}
+
+\paragraph{$p(\mu|D)$}
+This is the posterior distribution given the dataset $D$.  We know that the $Beta(\mu,1,1) = uniform distribution$.
+
+\begin{align}
+p(\mu|D) &= \frac{p(D|\mu)p(\mu)}{p(D)} \\
+&= \frac{p(D|\mu)}{p(D)} \\
+&= Beta(\mu,2,2) \\
+&= \frac{3!}{1!1!}\mu(1-\mu) \\
+& = 6 \mu(1-\mu)
+\end{align}
+
+\paragraph{$\mu_{ML}$ given $D$}
+The maximum likelihood estimate of this value is the peak of the function above, which is at $\mu = \frac{1}{2}$.
+This has been proven in class from the lectures, that the ML solution is  $\mu = \frac{N_H}{N_H+N_T}$, where $N_H$ is the number of heads and $N_T$ is the number of tails.
  
+\paragraph{$\mu_{MAP}$ given $D$}
+We know that $\mu_{MAP} = argmax p(\mu|D)p(\mu)$, but since our prior is uniform here $\mu_{MAP} = \mu_{ML}$.  Therefore, $\mu_{MAP} = \frac{1}{2}$.
+
+\paragraph{$p(H|D)$}
+Now let's find the full bayesian integral for the value given the found $\mu$, that we have for our dataset.  Also, remember for our problem $p(H|\mu) = \mu)$, because $\mu$ is the probability that for any given toss we get heads.
+
+\begin{align}
+p(H|D) &= \int_u p(H|\mu)p(\mu|D)d\mu \\
+&= \int_u \mu p(\mu|D)d\mu \\
+&= E( p(\mu|D)) \\
+&= E( Beta(\mu,2,2)) \\
+&= \frac{2}{2+2} \\
+&= \frac{1}{2} \\
+\end{align}
+
+\paragraph{$Var(p(\mu|D))$}
+
+\begin{align}
+Var(p(\mu|D)) &=  Var(Beta(\mu,2,2))
+&= \frac{2*2}{(2+2)^2(2+2+1)}
+&= 0.05
+\end{align}
+
+\subsubsection{A -- 2}
+\paragraph{P(H) given the prior}
+Same as seen in A-1, because the prior did not change.
+
+\paragraph{$p(\mu|D)$}
+This is the posterior distribution given the dataset $D$. 
+
+\begin{align}
+p(\mu|D) = \frac{p(D|\mu)p(\mu)}{p(D)} \\
+&= \frac{p(D|\mu)}{p(D)} \\
+&= Beta(\mu,1,4) \\
+&= \frac{4!}{0!3!}(1-\mu)^3 \\
+& = 4 (1-\mu)^3
+\end{align}
+
+\paragraph{$\mu_{ML}$ given $D$}
+The maximum likelihood estimate of this value is the peak of the function above, which is at $\mu = 0$.
+This has been proven in class from the lectures, that the ML solution is  $\mu = \frac{N_H}{N_H+N_T}$, where $N_H$ is the number of heads and $N_T$ is the number of tails, and we did not see any heads.
+
+\paragraph{$\mu_{MAP}$ given $D$}
+We know that $\mu_{MAP} = argmax p(\mu|D)p(\mu)$, but since our prior is uniform here $\mu_{MAP} = \mu_{ML}$.  Therefore, $\mu_{MAP} = 0$.
+
+\paragraph{$p(H|D)$}
+Now let's find the full bayesian integral for the value given the found $\mu$, that we have for our dataset.  Also, remember for our problem $p(H|\mu) = \mu)$, because $\mu$ is the probability that for any given toss we get heads.
+
+\begin{align}
+p(H|D) &= \int_u p(H|\mu)p(\mu|D)d\mu \\
+&= \int_u \mu p(\mu|D)d\mu \\
+&= E( p(\mu|D)) \\
+&= E( Beta(\mu,1,4)) \\
+&= \frac{1}{1+4} \\
+&= \frac{1}{5} \\
+\end{align}
+
+\paragraph{$Var(p(\mu|D))$}
+
+\begin{align}
+Var(p(\mu|D)) &=  Var(Beta(\mu,1,4)) \\
+&= \frac{1*4}{(5)^2(1+4+1)} \\
+&= 0.0267
+\end{align}
+
+\subsubsection{B--1}
+\paragraph{P(H) given the prior}
+The probability of $p(H) = \int_{\mu} p(H|\mu)p(\mu)$, and $p(\mu)$ is not uniform, which means that we need to include it in the integral.  We will use the function for $p(\mu) =  Beta(\mu,2,2)$. Therefore, 
+
+\begin{align}
+p(H) &= \int_{\mu} p(H|\mu)p(\mu) \\
+P(H) &= \frac{3!}{1!1!}\int_{\mu} \mu*(\mu)(1-\mu) \\
+p(H) &=  \frac{3!}{1!1!} \int_{\mu} \mu^2-\mu^3 \\
+P(H) &= 6 \frac{(x^3)}{3} - \frac{(x^4)}{4} |^1_0 \\
+P(H) &= 6 (\frac{1}{12}) \\
+P(H) &= \frac{1}{2}. \\
+\end{align}
+
+\paragraph{$p(\mu|D)$}
+This is the posterior distribution given the dataset $D$.
+
+\begin{align}
+p(\mu|D) &= \frac{p(D|\mu)p(\mu)}{p(D)} \\
+&= \frac{p(D|\mu)}{p(D)} \\
+&= Beta(\mu,3,3) \\
+&= \frac{5!}{2!2!}(\mu)^2(1-\mu)^2 \\
+& = 30 \mu^2(1-\mu)^2
+\end{align}
+
+\paragraph{$\mu_{ML}$ given $D$}
+This portion of the function is the same as A-1, because ML assumes we have uniform priors.
+
+\paragraph{$\mu_{MAP}$ given $D$}
+For this more complicated function we have not seen in class, let's take the derivative and set equal to zero.
+
+\begin{align}
+\frac{\partial}{\partial \mu} 30 \mu^2(1-\mu)^2 &= 0 \\
+\frac{\partial}{\partial \mu} \mu^2 (1 -2\mu + \mu^2) &= 0 \\
+\frac{\partial}{\partial \mu} \mu^2 -2 \mu^3 + \mu^4 &= 0 \\
+2\mu -6\mu^2 + 4\mu^3 &= 0 \\
+\frac{1}{2} &= \mu \\
+\end{align}
+
+\paragraph{$p(H|D)$}
+Now let's find the full bayesian integral for the value given the found $\mu$, that we have for our dataset.  Also, remember for our problem $p(H|\mu) = \mu)$, because $\mu$ is the probability that for any given toss we get heads.
+
+\begin{align}
+p(H|D) &= \int_u p(H|\mu)p(\mu|D)d\mu \\
+&= \int_u \mu p(\mu|D)d\mu \\
+&= E( p(\mu|D)) \\
+&= E( Beta(\mu,3,3)) \\
+&= \frac{3}{3+3} \\
+&= \frac{1}{2} \\
+\end{align}
+
+\paragraph{$Var(p(\mu|D))$}
+
+\begin{align}
+Var(p(\mu|D)) &=  Var(Beta(\mu,3,3)) \\
+&= \frac{3*3}{(6)^2(3+3+1)} \\
+&= .0357
+\end{align}
+
+\subsection{B -- 2}
+\paragraph{P(H) given the prior}
+See the same as B-1.
+
+\paragraph{$p(\mu|D)$}
+This is the posterior distribution given the dataset $D$.
+
+\begin{align}
+p(\mu|D) &= \frac{p(D|\mu)p(\mu)}{p(D)} \\
+&= \frac{p(D|\mu)}{p(D)} \\
+&= Beta(\mu,2,5) \\
+&= \frac{6!}{1!5!}(\mu)^1(1-\mu)^5 \\
+& = 6 \mu(1-\mu)^5
+\end{align}
+
+\paragraph{$\mu_{ML}$ given $D$}
+For this answer please see A-2, because ML assumes that we have a uniform prior.
+
+\paragraph{$\mu_{MAP}$ given $D$}
+For this more complicated function we have not seen in class, let's take the derivative and set equal to zero.
+
+\begin{align}
+\frac{\partial}{\partial \mu} 6 \mu(1-\mu)^5 &= 0 \\
+ -5*\mu(1-\mu)^4 + (1-\mu)^5 &= 0 \\
+-5\mu + (1-mu )&= 0 \\
+ 1 &= 6\mu \\
+\mu &= \frac{1}{6}
+\end{align}
+
+\paragraph{$p(H|D)$}
+Now let's find the full bayesian integral for the value given the found $\mu$, that we have for our dataset.  Also, remember for our problem $p(H|\mu) = \mu)$, because $\mu$ is the probability that for any given toss we get heads.
+
+\begin{align}
+p(H|D) &= \int_u p(H|\mu)p(\mu|D)d\mu \\
+&= \int_u \mu p(\mu|D)d\mu \\
+&= E( p(\mu|D)) \\
+&= E( Beta(\mu,2,5)) \\
+&= \frac{2}{2+5} \\
+&= \frac{2}{7} \\
+\end{align}
+
+\paragraph{$Var(p(\mu|D))$}
+
+\begin{align}
+Var(p(\mu|D)) &=  Var(Beta(\mu,2,5)) \\
+&= \frac{2*5}{(7)^2(2+5+1)} \\
+&= .0255
+\end{align}
+
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 2
@@ -122,10 +327,11 @@ Let's use Bayes Rule to solve this problem.
 
 \begin{align}
 p(flu=true|test=True) &= \frac{p(test=true|flu=True) p(flu=true)}{p(test=true)} \\
-&=  \frac{p(test=true|flu=True) p(flu=true)}{p(test=true|flu=True) p(flu=true) + p(test=true|flu=False) p(flu=false)} \\
-&= \frac{0.99*0.0001}{0.99*0.0001+(1-0.98)*0.999}
-&= 0.0049
+%&=  \frac{p(test=true|flu=True) p(flu=true)}{p(test=true|flu=True) p(flu=true) + p(test=true|flu=False) p(flu=false)} \\
+&= \frac{0.99*0.0001}{0.99*0.0001+(1-0.98)*0.999} \\
+&= 0.0049 \\
 \end{align}
+
 
 So still not that likely, shows the power of the prior.
 
@@ -134,7 +340,7 @@ So still not that likely, shows the power of the prior.
 %----------------------------------------------------------------------------------------
 \section{Problem 3}
 
-
+dslkfj
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4
 %----------------------------------------------------------------------------------------
@@ -147,22 +353,48 @@ Let's use the log-likelihood.
 \begin{align}
 l(D|\lambda) &= \sum log(p(x_i|\lambda) \\
 &= \sum log(\frac{3}{\lambda})+2log(\frac{x_i}{\lambda})-(\frac{x_i}{\lambda})^3 \\
-&= \sum log(3) - log(\lambda) +2log(x_i) - 2log(\lambda) -(\frac{x_i}{\lambda})^3 \\
+&= \sum log(3) - log(\lambda) +2log(x_i) - 2log(\lambda) -(\frac{x_i}{\lambda})^3 
 \end{align}
 
 Now let's take the derivative of the log-likelihood, and set to 0.
 
 \begin{align}
 \frac{\partial l}{\partial \lambda} &=\frac{\partial}{\partial \lambda} \sum log(3) - log(\lambda) +2log(x_i) - 2log(\lambda) -(\frac{x_i}{\lambda})^3 \\
-&\sum -\frac{1}{\lambda} - \frac{2}{\lambda}  + 3\lambda^{-4}x_i^{3} = 0 \\
-&\frac{-3N}{\lambda} + \sum 3\lambda^{-4}x_i^{3} = 0 \\
-& \frac{3N}{\lambda} =  \sum 3\lambda^{-4}x_i^{3} \\ 
-& \frac{3N\lambda^4}{3\lambda} = \frac{\lambda^4}{x_i^3} \sum 3\lambda^{-4}x_i^{3} \\
-& \lambda^3 = \sum \frac{x_i^{3}}{N} \\
-& \lambda = (\sum \frac{x_i^{3}}{N})^{1/3}
+\sum -\frac{1}{\lambda} - \frac{2}{\lambda}  + 3\lambda^{-4}x_i^{3} &= 0 \\
+\frac{-3N}{\lambda} + \sum 3\lambda^{-4}x_i^{3} &= 0 \\
+ \frac{3N}{\lambda} &=  \sum 3\lambda^{-4}x_i^{3} \\ 
+\frac{3N\lambda^4}{3\lambda} &= \frac{\lambda^4}{x_i^3} \sum 3\lambda^{-4}x_i^{3} \\
+\lambda^3 &= \sum \frac{x_i^{3}}{N} \\
+\lambda &= (\sum \frac{x_i^{3}}{N})^{1/3}
 \end{align}
 
 \section{Problem 5}
+In problem 5 we create a kernelized logistic regression function using the RBF, kernel.
+We optimize the loss function that can be seen below using stochastic gradient descent, basic gradient descent using these methods. The optimization function can be seen below,
+
+\begin{equation}
+J(w) = \sum\limits_{i=1}^N log(\sigma(y_i w^T k_i)) + \lambda w^T w.
+\end{equation}
+
+We then take the gradient, described here.
+\begin{equation}
+\frac{\partial J(w)}{\partial w} = \sum\limits_{i=1}^M -y_i  k_i log(\sigma(-y_i w^T k_i)) + \frac{\lambda}{2}  w
+\end{equation}
+
+Using this update step, we end up with the update rule here,
+
+\begin{equation}
+w^{t} = w^{t-1} + \eta (  \sum\limits_{i=1}^M -y_i  k_i log(\sigma(-y_i w^T k_i)) + \lambda w).
+\end{equation}
+
+
+
+We remove the 2 from the gradient without the loss of generality.
+Finally, we select $\eta = .001$, and the Regularizer Penalty as $\lambda = .01$.
+We were able to get a training accuracy of 91.16\%, and test accuracy 79.50\% of  using mini-batch gradient descent with 100 points.  
+Using full gradient descent, which is the same as batch gradient descent, just using the entire batch for the descent we were able to achieve training error of  {\color{red}number}, and testing error of {\color{red}number}.
+The stochastic method achieves convergence much quicker, and we used randomly chosen points for each update step.
+All of the code that was used to create this was completed using 
 
 
 \end{document}

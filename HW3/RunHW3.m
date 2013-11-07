@@ -26,12 +26,12 @@ end
 K = 103.4680;
 
 % Now let's perform gradient descent on the cost function
-w = Ker_Logreg_Stograd( TrainingX,TrainingY,K_mat,.01,1000,.001 );
+[w,Cost,iter] = Ker_Logreg_Stograd( TrainingX,TrainingY,K_mat,.1,10000,.001 );
 
-%disp('This is the trained weight value')
+iter
 
-
-
+% Now let's test for accuracy
+[ accuracy ] = Test_KernelLogReg( w,TrainingX,TestX,TestY )
 
 end
 
