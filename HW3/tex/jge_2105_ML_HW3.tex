@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+%\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{bm}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{graphicx} % This one is for pictures
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{color}
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Columbia University -- Fall 2013} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Machine Learning Homework \#3\\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Joe Ellis - jge2105} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\section{Problem 1}
+\subsection{Problem1.1 - Discrete}
+We assume that we have a coin that can land on heads or tails, and we have 3 possible values for $\mu$, which are $\frac{1}{2},\frac{1}{4},\frac{3}{4}$. 
+ The first problem that we address is to find the minimum number of tosses we'd need to see in order to conclude that $p(\mu = \frac{1}{2}) > \frac{1}{2}$.
+We will refer to this series of tosses as, $D$.  Using Bayes rule we know that $p(\mu|D) = p(D|\mu)p(\mu)/p(D)$.  
+For this example, we can assume that the prior on each choice of mu is equal.  We know that the flipping of a coin is given by the bernoulli distribution, where$ N_{H}$ and $N_{T}$ are the number of heads and tails in our set respectively.
+We will ignore $p(\mu)$ in the equations since the priors are uniform.
+The quickest time that we can be sure that the $p(\mu=\frac{1}{2}|D) > \frac{1}{2}$ is $D = (H,T,H,T,H,T)$
+
+\begin{align}
+p(\mu=\frac{1}{2}|D) &= \frac{(\mu)^{N_{H}}(1-\mu)^{N_{T}}}{\sum\limits_{\mu} (\mu)^{N_{H}}(1-\mu)^{N_{T}}  } \\
+&= .5424
+\end{align}
+ 
+The second test that we will do on this is to find the minimal set $D$ such that $p(\mu = \frac{3}{4} | D) > \frac{1}{2}$. 
+ For this the smallest dataset that makes this a reality is $D = (H,H)$, by the same logic.
+
+\begin{align}
+p(\mu=\frac{3}{4}|D) &= \frac{(\mu)^{N_{H}}(1-\mu)^{N_{T}}}{\sum\limits_{\mu} (\mu)^{N_{H}}(1-\mu)^{N_{T}}  } \\
+&= .6429
+\end{align}
+
+\subsection{Problem 1.2 - Continuous}
+ Consider 2 possible distributions: (A) $\mu ~ uniform[0,1]$; (B) we have some reason to think the coin is likely to be fair, so we have a parabola that is peaked at $\frac{1}{2}$ and then goes to 0 at 0 and 1.
+
+Use the two datasets, and answer a variety of questions for each, $D_1 = (H,T)$; $D_2 = (T,T,T)$.
+
+\subsubsection{A -- 1}
+
+ 
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+\section{Problem 2}
+We are assuming that we have a good test for swine flu that is highly accurate, with the probabilities given below.  
+We want to find the likelihood if I (Joe) take the test and it outputs true, what is the probability that I have swine flu.
+
+\begin{align}
+p(test=true|flu=True) &= 0.99 \\
+p(test=false|flu=false) &= 0.98 \\
+p(flu=true) &= .0001 \\
+p(flu=false) &= .999
+\end{align}
+
+Let's use Bayes Rule to solve this problem.
+
+\begin{align}
+p(flu=true|test=True) &= \frac{p(test=true|flu=True) p(flu=true)}{p(test=true)} \\
+&=  \frac{p(test=true|flu=True) p(flu=true)}{p(test=true|flu=True) p(flu=true) + p(test=true|flu=False) p(flu=false)} \\
+&= \frac{0.99*0.0001}{0.99*0.0001+(1-0.98)*0.999}
+&= 0.0049
+\end{align}
+
+So still not that likely, shows the power of the prior.
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3
+%----------------------------------------------------------------------------------------
+\section{Problem 3}
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+\section{Problem 4}
+The weibull distribution is a probablility distribution over non-negative scalar values.  
+The distribution is as follows,  $p(x|\lambda) = \frac{3}{\lambda}(\frac{x}{\lambda})^2exp(-(\frac{x}{\lambda})^3)$.
+Given a dataset $D = (x_0,x_1,...,x_N)$, what is the ML estimate of $\lambda$.
+Let's use the log-likelihood.
+
+\begin{align}
+l(D|\lambda) &= \sum log(p(x_i|\lambda) \\
+&= \sum log(\frac{3}{\lambda})+2log(\frac{x_i}{\lambda})-(\frac{x_i}{\lambda})^3 \\
+&= \sum log(3) - log(\lambda) +2log(x_i) - 2log(\lambda) -(\frac{x_i}{\lambda})^3 \\
+\end{align}
+
+Now let's take the derivative of the log-likelihood, and set to 0.
+
+\begin{align}
+\frac{\partial l}{\partial \lambda} &=\frac{\partial}{\partial \lambda} \sum log(3) - log(\lambda) +2log(x_i) - 2log(\lambda) -(\frac{x_i}{\lambda})^3 \\
+&\sum -\frac{1}{\lambda} - \frac{2}{\lambda}  + 3\lambda^{-4}x_i^{3} = 0 \\
+&\frac{-3N}{\lambda} + \sum 3\lambda^{-4}x_i^{3} = 0 \\
+& \frac{3N}{\lambda} =  \sum 3\lambda^{-4}x_i^{3} \\ 
+& \frac{3N\lambda^4}{3\lambda} = \frac{\lambda^4}{x_i^3} \sum 3\lambda^{-4}x_i^{3} \\
+& \lambda^3 = \sum \frac{x_i^{3}}{N} \\
+& \lambda = (\sum \frac{x_i^{3}}{N})^{1/3}
+\end{align}
+
+\section{Problem 5}
+
+
+\end{document}

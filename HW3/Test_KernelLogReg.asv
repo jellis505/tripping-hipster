@@ -1,0 +1,11 @@
+function [ predicted ] = Test_KernelLogReg( w,TrainX,TestX,TestY )
+%Test_KernelLogReg This takes the test set and the training set, creates
+%the gram matrix, and then returns the accuracy and the predicted labels
+
+% Create the gram matrix, for the kernel function
+Test_Gram = pdist2(TestX,TrainX);
+
+for j = 1:size(Test_Gram,1)
+    
+end
+
