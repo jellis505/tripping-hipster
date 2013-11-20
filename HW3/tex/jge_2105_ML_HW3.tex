@@ -154,9 +154,9 @@ p(H|D) &= \int_u p(H|\mu)p(\mu|D)d\mu \\
 \paragraph{$Var(p(\mu|D))$}
 
 \begin{align}
-Var(p(\mu|D)) &=  Var(Beta(\mu,2,2))
-&= \frac{2*2}{(2+2)^2(2+2+1)}
-&= 0.05
+Var(p(\mu|D)) &=  Var(Beta(\mu,2,2)) \\
+&= \frac{2*2}{(2+2)^2(2+2+1)} \\
+&= 0.05 
 \end{align}
 
 \subsubsection{A -- 2}
@@ -167,7 +167,7 @@ Same as seen in A-1, because the prior did not change.
 This is the posterior distribution given the dataset $D$. 
 
 \begin{align}
-p(\mu|D) = \frac{p(D|\mu)p(\mu)}{p(D)} \\
+p(\mu|D) &= \frac{p(D|\mu)p(\mu)}{p(D)} \\
 &= \frac{p(D|\mu)}{p(D)} \\
 &= Beta(\mu,1,4) \\
 &= \frac{4!}{0!3!}(1-\mu)^3 \\
@@ -340,7 +340,25 @@ So still not that likely, shows the power of the prior.
 %----------------------------------------------------------------------------------------
 \section{Problem 3}
 
-dslkfj
+\subsection{Problem A}
+We want to show that $u \perp (v,w)|x \Rightarrow u \perp v|x$.
+
+\paragraph{PROOF}
+Was not able to solve this proof.  
+
+\subsection{Problem B}
+We want to show that $A \perp (B,C) \Rightarrow A \perp B$.
+
+\paragraph{PROOF}
+
+\begin{align}
+p(A,B,C) &= p(A)p(B,C) \\
+\int_C  p(A,B,C) &= \int_C p(A)p(B,C) \\
+p(A,B) &= p(A)p(B) \\
+A &\perp B 
+\end{align}
+
+
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4
 %----------------------------------------------------------------------------------------
@@ -363,7 +381,7 @@ Now let's take the derivative of the log-likelihood, and set to 0.
 \sum -\frac{1}{\lambda} - \frac{2}{\lambda}  + 3\lambda^{-4}x_i^{3} &= 0 \\
 \frac{-3N}{\lambda} + \sum 3\lambda^{-4}x_i^{3} &= 0 \\
  \frac{3N}{\lambda} &=  \sum 3\lambda^{-4}x_i^{3} \\ 
-\frac{3N\lambda^4}{3\lambda} &= \frac{\lambda^4}{x_i^3} \sum 3\lambda^{-4}x_i^{3} \\
+\frac{3N\lambda^4}{3\lambda} &= \lambda^4 \sum 3\lambda^{-4}x_i^{3} \\
 \lambda^3 &= \sum \frac{x_i^{3}}{N} \\
 \lambda &= (\sum \frac{x_i^{3}}{N})^{1/3}
 \end{align}
@@ -391,10 +409,20 @@ w^{t} = w^{t-1} + \eta (  \sum\limits_{i=1}^M -y_i  k_i log(\sigma(-y_i w^T k_i)
 
 We remove the 2 from the gradient without the loss of generality.
 Finally, we select $\eta = .001$, and the Regularizer Penalty as $\lambda = .01$.
-We were able to get a training accuracy of 91.16\%, and test accuracy 79.50\% of  using mini-batch gradient descent with 100 points.  
-Using full gradient descent, which is the same as batch gradient descent, just using the entire batch for the descent we were able to achieve training error of  {\color{red}number}, and testing error of {\color{red}number}.
+We were able to get a training accuracy of 91.16\%, and test accuracy 79.503\% of  using mini-batch gradient descent with 100 points.  
+Using full gradient descent, which is the same as batch gradient descent, just using the entire batch for the descent we were able to achieve training accuracy of  80.1\%, and testing accuracy of 60.52\%.
+This worse results on the full gradient descent, is due to an iteration limit that I set on the descent due to the fact that it was taking to long to converge.  
+Therefore, the stochastic gradient descent method worked much better for our purposes and converged much quicker.
 The stochastic method achieves convergence much quicker, and we used randomly chosen points for each update step.
-All of the code that was used to create this was completed using 
+All of the code that was used to create can be found in the zip file attached to the write up.
+Also, my memory was large enough to read the entire Kernel Gram matrix into memory, and because it was much quicker to do so I calculated the gram matrix at the beginning.
+A plot of the decreasing cost function during the stochastic gradient descent algorithm can be seen in Figure \ref{fig:cost}.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{cost.png}
+\caption{Cost Function during Stochastic Gradient Descent}
+\label{fig:cost}
+\end{figure}
 
 \end{document}

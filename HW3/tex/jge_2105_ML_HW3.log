@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.31)  7 NOV 2013 12:14
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.31)  7 NOV 2013 14:15
 entering extended mode
 **C:/Users/jellis/git_repos/tripping-hipster/HW3/tex/jge_2105_ML_HW3.tex
 (C:/Users/jellis/git_repos/tripping-hipster/HW3/tex/jge_2105_ML_HW3.tex
@@ -306,8 +306,9 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4] [5] [6] [7]
-Overfull \hbox (4.64326pt too wide) in paragraph at lines 348--352
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4] [5] [6] [7] [
+8]
+Overfull \hbox (4.64326pt too wide) in paragraph at lines 366--370
 \T1/cmr/m/n/10.95 dis-tri-bu-tion is as fol-lows, $\OML/cmm/m/it/10.95 p\OT1/cm
 r/m/n/10.95 (\OML/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 \OT
 1/cmr/m/n/10.95 ) = []([])[]\OML/cmm/m/it/10.95 exp\OT1/cmr/m/n/10.95 (\OMS/cms
@@ -316,16 +317,22 @@ ML/cmm/m/it/10.95 D \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 x[]; x[]; :::; x[
 ]\OT1/cmr/m/n/10.95 )$\T1/cmr/m/n/10.95 ,
  []
 
-[8] [9] [10]
+[9] <cost.png, id=44, 421.575pt x 311.66437pt>
+File: cost.png Graphic file (type png)
+ <use cost.png>
+Package pdftex.def Info: cost.png used on input line 423.
+(pdftex.def)             Requested size: 334.60571pt x 247.37251pt.
+ [10] [11 <C:/Users/jellis/git_repos/tripping-hipster/HW3/tex/cost.png (PNG cop
+y)>]
 (C:\Users\jellis\git_repos\tripping-hipster\HW3\tex\jge_2105_ML_HW3.aux) ) 
 Here is how much of TeX's memory you used:
- 4069 strings out of 494045
- 54858 string characters out of 3148384
- 231517 words of memory out of 3000000
- 7287 multiletter control sequences out of 15000+200000
+ 4076 strings out of 494045
+ 54931 string characters out of 3148384
+ 231526 words of memory out of 3000000
+ 7292 multiletter control sequences out of 15000+200000
  26922 words of font info for 75 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 35i,12n,47p,336b,230s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 35i,12n,47p,336b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/P
 rogram Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -341,9 +348,9 @@ X 2.9/fonts/type1/public/cm-super/sfcc1440.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/cm-super/sfrm1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/cm-super/sfrm1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm
 -super/sfrm2074.pfb>
-Output written on jge_2105_ML_HW3.pdf (10 pages, 193419 bytes).
+Output written on jge_2105_ML_HW3.pdf (11 pages, 201601 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

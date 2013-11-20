@@ -7,14 +7,14 @@ function [ w,Cost,iter ] = Ker_Logreg_Stograd( TrainX,TrainY,K_gram,Reg_Penalty,
 % Choose randomly the training points
 
 % This is the threshold for stopping the gradient descent
-thresh = .001;
+thresh = .000001;
 num_points = size(TrainX,1);
 w = rand(num_points,1);
 Cost = zeros(1,1002);
-Cost(1) = 1000;
+Cost(1) = 1111111111;
 iter = 1;
 Cost_Diff = 1000;
-while (Cost_Diff > thresh) && (iter < 3000)
+while (Cost_Diff > thresh) && (iter < 8000)
     iter = iter+1;
     % These are the points to traing the stochastic descent with
     batch_points = randperm(num_points,p);

@@ -1,5 +1,6 @@
-function [ output_args ] = RunHW3( dataset_path )
+function [ Cost ] = RunHW3( dataset_path )
 %RunHW3 This function runs problem 5 of HW3 for ML at Columbia University
+% dataset path is the path to the dataset, that was provided
 
 % Load the data
 load(dataset_path)
@@ -25,10 +26,16 @@ end
 %K = (1/N^2)*sum_val;
 K = 103.4680;
 
-% Now let's perform gradient descent on the cost function
-[w,Cost,iter] = Ker_Logreg_Stograd( TrainingX,TrainingY,K_mat,.1,10000,.001 );
+% This creates the K matrix, uncomment this line if it is not stored in the
+% dataset that we use.
+K_mat = exp((pdist2(TrainingX,TrainingX)).^2/K);
 
-iter
+% Now let's perform gradient descent on the cost function
+[w,Cost,iter] = Ker_Logreg_Stograd( TrainingX,TrainingY,K_mat,.01,100,.001 );
+
+% This creates a plot of the cost function, where the errors are not
+% normalized by the log of the error.
+
 
 % Now let's test for accuracy
 [ accuracy ] = Test_KernelLogReg( w,TrainingX,TestX,TestY )
