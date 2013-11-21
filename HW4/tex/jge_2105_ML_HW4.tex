@@ -272,14 +272,14 @@ We have 9 plays written by Shakespeare and 9 plays written by Middleton, and we 
 We began by implementing the EM algorithm with multinomial counts for documents clustering and classification.  
 The results were very promising, and the responsibilities for each document after the EM algorithm were correctly classified into Shakespeare and Middleton.
 We can see below the mixture for each document moving to the correct responsibilities for some given random initialization with 2 assumed mixtures.  
-To see how the responsibilities change throughout the EM algorithm, I have shown the responsibilities for each document after random initialization, 5 iterations, convergence (36 iterations).
+To see how the responsibilities change throughout the EM algorithm, I have shown the responsibilities for each document after 1 iteration, 5 iterations, and convergence (36 iterations).
 These results can be seen in Figures \ref{fig:randinit}, \ref{fig:iter}, and \ref{fig:classificationacc}.
 As we can see from the graphs below the results converge to the proper responsibilities for each document, and we receive 100\% accuracy.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.3\textwidth]{RandInit.png}
-\caption{Random initialization of document responsibilities}
+\caption{Document responsibilities after 1 iteration}
 \label{fig:randinit}
 \end{figure}
 
@@ -380,16 +380,9 @@ Now we want to prove using Jensen's inequality that,
 
 First we notice that the set of constant variables $\sum_i \alpha_i = 1$, and are therefore they are weights on each point.
 Using this knowledge, we can then use Jensen's inequality on this problem.
-We also know that the function $exp$, is convex and therefore using Jensen's Inequality we know, $\sum_i exp(x_i) \ge exp(\sum_ix_i)$.
-We know that, 
-
-\begin{align}
-\sum_i exp(\theta^Tf_i) &\ge exp(\sum_i \theta^T f_i), \ by\ Jensen \\
-&= exp(\theta^T \sum_i  f_i).
-\end{align}
-
-Since the $exp$ function is strictly increasing if we can prove $\theta^T \sum_i  f_i \ge \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\alpha_i)$, we will be done.
-Let's start with the right side of the equation.
+We also know that the function $exp$, is convex and therefore using Jensen's Inequality we know, $\sum_i \alpha_i exp(x_i) \ge exp(\sum_i \alpha_i x_i)$.
+Let's start with the right side of the equation, and simplify it.
+Thus, 
 
 \begin{align}
  \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\alpha_i) &=  \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\frac{exp(\theta^Tf_i)}{\sum_j exp(\theta^Tf_j)}) \\
@@ -398,10 +391,16 @@ Let's start with the right side of the equation.
 &=  \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i \theta^T f_i + \sum_i  \alpha_i  log(\sum_j exp(\theta^Tf_j)) \\
 &=  \theta^T \sum_i \alpha_if_i - \theta^T \sum_i \alpha_i f_i + \sum_i  \alpha_i  log(\sum_j exp(\theta^Tf_j)) \\
 & =  \sum_i  \alpha_i  log(\sum_j exp(\theta^Tf_j)) \\
-& \le  \sum_i  \alpha_i log(exp(\sum_j \theta^Tf_j)) \\
-&= \sum_i \alpha_i \sum_j \theta^T f_j \\
-&= \sum_j \theta^T f_j \\
-&= \theta^T \sum_j f_j \\
+& \le  log( \sum_i \alpha_i \sum_j exp(\theta^T f_j)) \\
+&= log( \sum_i \frac{exp(\theta^T f_i)}{\sum_j exp(\theta^Tf_j)}\sum_j exp(\theta^Tf_j)) \\
+&= log(\sum_i exp(\theta^T f_i)). \\
+\end{align}
+
+Now if we plug this upper bound, because $exp$ is strictly increasing, into our original inequality we get, 
+
+\begin{align}
+ exp( \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\alpha_i)) &\le exp( log(\sum_i exp(\theta^T f_i))) \\
+&= \sum_i exp(\theta^T f_i).
 \end{align}
 
 Therefore, we have shown what we wanted to prove.
