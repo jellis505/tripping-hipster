@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.31)  20 NOV 2013 10:59
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.31)  20 NOV 2013 19:35
 entering extended mode
 **C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/jge_2105_ML_HW4.tex
 (C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/jge_2105_ML_HW4.tex
@@ -251,6 +251,14 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks26
+\float@box=\box29
+\@float@everytoks=\toks27
+\@floatcapt=\box30
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip53
 \f@ncyO@elh=\skip54
@@ -263,43 +271,43 @@ Package color Info: Driver file: pdftex.def on input line 130.
 \f@ncyO@orf=\skip61
 )
 (C:\Users\jellis\git_repos\tripping-hipster\HW4\tex\jge_2105_ML_HW4.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
+\scratchcounter=\count104
 \scratchdimen=\dimen115
-\scratchbox=\box29
-\nofMPsegments=\count104
-\nofMParguments=\count105
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count106
+\scratchbox=\box31
+\nofMPsegments=\count105
+\nofMParguments=\count106
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count107
 \MPscratchDim=\dimen116
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
-\everyMPtoPDFconversion=\toks27
+\MPnumerator=\count108
+\makeMPintoPDFobject=\count109
+\everyMPtoPDFconversion=\toks29
 )
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 71.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 72.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+LaTeX Font Info:    Try loading font information for U+msa on input line 72.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+LaTeX Font Info:    Try loading font information for U+msb on input line 72.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -310,26 +318,56 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 <datasetA.png, id=27, 421.575pt x 316.18124pt>
 File: datasetA.png Graphic file (type png)
  <use datasetA.png>
-Package pdftex.def Info: datasetA.png used on input line 200.
+Package pdftex.def Info: datasetA.png used on input line 201.
 (pdftex.def)             Requested size: 209.12778pt x 156.84549pt.
 
 <datasetB.png, id=28, 421.575pt x 316.18124pt>
 File: datasetB.png Graphic file (type png)
  <use datasetB.png>
-Package pdftex.def Info: datasetB.png used on input line 207.
+Package pdftex.def Info: datasetB.png used on input line 208.
 (pdftex.def)             Requested size: 209.12778pt x 156.84549pt.
  [5 <C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/datasetA.png (PNG copy)
 > <C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/datasetB.png (PNG copy)>]
- [6]
+
+<RandInit.png, id=32, 421.575pt x 316.18124pt>
+File: RandInit.png Graphic file (type png)
+ <use RandInit.png>
+Package pdftex.def Info: RandInit.png used on input line 281.
+(pdftex.def)             Requested size: 125.47794pt x 94.1073pt.
+
+<5iter.png, id=33, 422.32782pt x 316.18124pt>
+File: 5iter.png Graphic file (type png)
+ <use 5iter.png>
+Package pdftex.def Info: 5iter.png used on input line 288.
+(pdftex.def)             Requested size: 125.47794pt x 93.93843pt.
+
+<classification_acc.png, id=34, 421.575pt x 316.18124pt>
+File: classification_acc.png Graphic file (type png)
+
+<use classification_acc.png>
+Package pdftex.def Info: classification_acc.png used on input line 295.
+(pdftex.def)             Requested size: 125.47794pt x 94.1073pt.
+ [6 <C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/RandInit.png (PNG copy)
+> <C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/5iter.png (PNG copy)> <C:
+/Users/jellis/git_repos/tripping-hipster/HW4/tex/classification_acc.png (PNG co
+py)>]
+<log-likelihood.png, id=38, 421.575pt x 311.66437pt>
+File: log-likelihood.png Graphic file (type png)
+ <use log-likelihood.png>
+Package pdftex.def Info: log-likelihood.png used on input line 305.
+(pdftex.def)             Requested size: 209.12778pt x 154.60484pt.
+
+[7 <C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/log-likelihood.png (PNG 
+copy)>] [8]
 (C:\Users\jellis\git_repos\tripping-hipster\HW4\tex\jge_2105_ML_HW4.aux) ) 
 Here is how much of TeX's memory you used:
- 4081 strings out of 494045
- 55024 string characters out of 3148384
- 231533 words of memory out of 3000000
- 7296 multiletter control sequences out of 15000+200000
+ 4164 strings out of 494045
+ 56261 string characters out of 3148384
+ 232894 words of memory out of 3000000
+ 7371 multiletter control sequences out of 15000+200000
  26922 words of font info for 75 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 35i,12n,47p,336b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 35i,12n,47p,336b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/P
 rogram Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -338,15 +376,16 @@ onts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
 amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1095.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1200.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1440.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/cm-super/sfrm1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/cm-super/sfrm2074.pfb>
-Output written on jge_2105_ML_HW4.pdf (6 pages, 181461 bytes).
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1095.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1200.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1440.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/cm-super/sfrm1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/cm-super/sfrm2074.pfb>
+Output written on jge_2105_ML_HW4.pdf (8 pages, 215073 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 92 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
