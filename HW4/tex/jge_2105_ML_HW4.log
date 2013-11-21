@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.31)  20 NOV 2013 19:35
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.31)  20 NOV 2013 21:45
 entering extended mode
 **C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/jge_2105_ML_HW4.tex
 (C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/jge_2105_ML_HW4.tex
@@ -358,7 +358,7 @@ Package pdftex.def Info: log-likelihood.png used on input line 305.
 (pdftex.def)             Requested size: 209.12778pt x 154.60484pt.
 
 [7 <C:/Users/jellis/git_repos/tripping-hipster/HW4/tex/log-likelihood.png (PNG 
-copy)>] [8]
+copy)>] [8] [9]
 (C:\Users\jellis\git_repos\tripping-hipster\HW4\tex\jge_2105_ML_HW4.aux) ) 
 Here is how much of TeX's memory you used:
  4164 strings out of 494045
@@ -383,9 +383,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1200.pfb><C:/Program Files
 .9/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/cm-super/sfrm1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/cm-super/sfrm2074.pfb>
-Output written on jge_2105_ML_HW4.pdf (8 pages, 215073 bytes).
+Output written on jge_2105_ML_HW4.pdf (9 pages, 220769 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
+ 95 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

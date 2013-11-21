@@ -357,9 +357,52 @@ The geometric mean can be found as follows,
 mean_{geometric} = \sqrt[N]{\prod_i x_i}
 \end{align}
 
+We will use Jensen's Inequality with natural logarithm to prove that the arithmetic mean is always larger than the geometric mean.
+
+\begin{align}
+log(mean_{arithmetic}) &= log(\frac{\sum_i xi}{N}) \\
+&= log(\frac{x_1}{N}+\frac{x_2}{N}+...+\frac{x_N}{N}) \\
+&\ge \frac{1}{N}log(x_1)+\frac{1}{N}log(x_2)+...+\frac{1}{N}log(x_N), \ by \  Jensen \\
+&= log(\sqrt[N]{x_1}\sqrt[N]{x_2}...\sqrt[N]{x_N}) \\
+&=log(\sqrt[N]{x_1x_2...x_N}) \\
+&= log(mean_{geometric})
+\end{align}
+
+Since we know that $log$ is a strictly increasing function, then we have proven that $ mean_{arithmetic} > mean_{geometric}$.
+
 \subsection{Part B}
+Now we want to prove using Jensen's inequality that, 
 
+\begin{align}
+\sum_i exp(\theta^Tf_i) &\ge exp( \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\alpha_i)), \\
+&where\   \alpha_i = \frac{ exp(\theta^Tf_i)}{\sum_j  exp(\theta^Tf_i)}.
+\end{align}
 
+First we notice that the set of constant variables $\sum_i \alpha_i = 1$, and are therefore they are weights on each point.
+Using this knowledge, we can then use Jensen's inequality on this problem.
+We also know that the function $exp$, is convex and therefore using Jensen's Inequality we know, $\sum_i exp(x_i) \ge exp(\sum_ix_i)$.
+We know that, 
 
+\begin{align}
+\sum_i exp(\theta^Tf_i) &\ge exp(\sum_i \theta^T f_i), \ by\ Jensen \\
+&= exp(\theta^T \sum_i  f_i).
+\end{align}
 
+Since the $exp$ function is strictly increasing if we can prove $\theta^T \sum_i  f_i \ge \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\alpha_i)$, we will be done.
+Let's start with the right side of the equation.
+
+\begin{align}
+ \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\alpha_i) &=  \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i log(\frac{exp(\theta^Tf_i)}{\sum_j exp(\theta^Tf_j)}) \\
+&=  \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i (log(exp(\theta^Tf_i)) - log(\sum_j exp(\theta^Tf_j))) \\
+&= \theta^T \sum_i \alpha_if_i - (\sum_i \alpha_i \theta^T f_i -  \sum_i  \alpha_i  log(\sum_j exp(\theta^Tf_j))) \\
+&=  \theta^T \sum_i \alpha_if_i - \sum_i \alpha_i \theta^T f_i + \sum_i  \alpha_i  log(\sum_j exp(\theta^Tf_j)) \\
+&=  \theta^T \sum_i \alpha_if_i - \theta^T \sum_i \alpha_i f_i + \sum_i  \alpha_i  log(\sum_j exp(\theta^Tf_j)) \\
+& =  \sum_i  \alpha_i  log(\sum_j exp(\theta^Tf_j)) \\
+& \le  \sum_i  \alpha_i log(exp(\sum_j \theta^Tf_j)) \\
+&= \sum_i \alpha_i \sum_j \theta^T f_j \\
+&= \sum_j \theta^T f_j \\
+&= \theta^T \sum_j f_j \\
+\end{align}
+
+Therefore, we have shown what we wanted to prove.
 \end{document}
