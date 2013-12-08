@@ -3,8 +3,17 @@ function [ train_l, responsibilities, mix_coeff, test_results, test_l ] = mult_m
 %the derivations provided in the hand in.
 %   Inputs:
 %       - data = The data for the model, with each document on the column
+%       - K = The number of mixtures
+%       - maxiter = The max number of iterations allowed
+%       - test = The test data in the same format as the "data" variable
 %   Outputs:
-%       - The log-likelihood of the multinomail mixture model created
+%       - train_l = The log-likelihood of the multinomail mixture model 
+%       created for the given data
+%       - responsibilities = The responsibilities of each document for each
+%       mixture
+%       - mix_coeff = The final mix_coeff for the mixtures
+%       - test_results = The responsibilities on the test set
+%       - test_l = The log-likelihood on the test set
 
 N = size(data,2);
 M = size(data,1);
