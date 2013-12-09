@@ -97,7 +97,7 @@ Therefore, we should switch our pick to the other available door, because by swi
 \section{Problem 2}
 \subsection{Problem 2a}
 We want to prove that $X \perp Y|Z$ if and only if the joint probability $p(x,y,z)$ can be expressed in the form of $a(x,z)b(y,z)$.
-\paragraph{Forward Direction}
+\paragraph{PROOF}
 Assume that $X \perp Y|Z$, therefore we know that $p(x|y,z) = p(x,z)$ and $p(x|y) \neq p(x)$.
 
 \begin{align}
@@ -107,19 +107,35 @@ p(x,y,z) &= p(y,z)p(x|y,z) \\
 
 Therefore, we have $p(x,y,z)$ can be expressed in the form of $a(x,z)b(y,z)$.
 
-\paragraph{Reverse Direction}
-Assume that p(x,y,z) can be written as a product of two functions s.t. $a(x,y)b(y,z)$.
-
 \subsection{Problem 2b}
  We want to prove or disprove with a counter example, that $X \perp Y|Z$ and $X \perp W|(Y,Z)$ implies that $X \perp (W,Y)|Z$.
 We want to use this knowledge to prove that $p(x|(w,y,z)) = p(x|z)$.
 
-\subsection{PROOF}
+\paragraph{PROOF}
 \begin{align}
-
+p(x|(w,y,z)) &= p(x|y,z),\ by \ X \perp W|(Y,Z) \\
+&= p(x|z), \ by \  X \perp Y|Z.
 \end{align}
 
- 
+Thus, we have shown $X \perp (W,Y)|Z$.
+
+\subsection(Problem 2c}
+
+\subsection{Bonus}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\section{Problem 3}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+ \section{Problem 4}
+
+
 
 
 
