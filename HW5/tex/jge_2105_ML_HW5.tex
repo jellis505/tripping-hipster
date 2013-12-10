@@ -158,9 +158,48 @@ p(x|(w,y,z)) &= p(x|y,z),\ by \ X \perp W|(Y,Z) \\
 Thus, we have shown $X \perp (W,Y)|Z$.
 
 \subsection{Problem 2c}
+We want to prove that $X \perp Y|(Z,W)$ and $X \perp Z|(Y,W)$ implies that $X \perp (Y,Z)|W$.  
+We know from $X \perp Y|(Z,W)$ that the $p(X|Y,Z,W) = p(X|Z,W)$, and from $X \perp Z|(Y,W)$ we know $p(X|Y,Z,W) = p(X|Y,W)$.
+This also in turn implies that $p(X|Y,W) = p(X|Z,W)$.
+
+We want to show that $p(X|Y,Z,W) = p(X|W)$.
+
+\begin{align}
+p(X|Z,Y,W) &= \\
+\end{align}
 
 
 \subsection{Bonus}
+Given a directed a cyclic graphical model composed of nodes $X_1,X_2,X_3,...,X_n$, we want to prove that the conditional independence statements $X_i \perp X_{non-desc of i}|X_{\pi i}$ implies that the joint distirubtion can be decomposed as follows:
+
+\begin{align}
+P(X_1,X_2,X_3,...,X_n) &= \prod_{i=1}^n P(X_i|X_{\pi i}) \\
+\end{align}
+
+Ok, first let's rationalize what not having any cycles in the graphs means.  This means, that if we are able to start a particular parent node and label this node 1, that all other nodes will be children of this node.
+Because the graph is acyclic no nodes that are children of a particular node can loop back on a path and in turn become parents of said node.  
+Therefore, let's rename the nodes making the derivation of the problem easier.
+Start at the root of the graphical model and name this node $Y_i$, and recursively travel down to this node's descendants label them $Y_2,Y_3,..,Y_m$, where $m$ is the last node labeled that is a direct descendant of $Y_1$.  
+Then perform this algorithm recursively for each node making sure that each node has a new and unique identifier, and incrementing by one by the last existing identifier.
+For the second node this algorithm is performed on it's first chosen direct descendant is $Y_{m+1}$.
+
+This gives us a graph where for $i > j$, in the same path we know that $Y_i$ is a descendant of $Y_j$.  
+Although they may not be a direct descendant.
+If they are not in the same path the ordering of these nodes does not matter.
+The above statements hold due to the acyclical nature of our graphical model.
+Now let's prove the theorem above.
+
+\begin{align}
+P(X_1,...,X_n) &= P(Y_1,...,Y_N), \ same \ elements \\
+&= P(Y_2,...,Y_n|Y_1)P(Y_1) \\
+&=... \\
+&= P(Y_n|Y_{n-1},...,Y_1)...P(Y_2|Y_1)P(Y_1) \\
+&= \prod_i^n P(Y_i|Y_{non-desc\ of\ i}) \\
+&= \prod_i^n P(Y_i|Y_{non-desc\ of\ i-\pi_i},Y_{\pi_i}) \\
+&= \prod_i^n P(Y_i|Y_{\pi_i}) \\
+&= \prod_i^n P(X_i|X_{\pi_i}) \\
+\end{align}
+
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 3
