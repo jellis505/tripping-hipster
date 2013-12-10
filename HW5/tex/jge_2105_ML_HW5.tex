@@ -187,16 +187,90 @@ The results of this can be seen in figure ~\ref{fig:ver2}, and the root node is 
 \caption{Final junction tree created using Kruskal's algorithm}
 \label{fig:ver2}
 \end{figure}
+
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4
 %----------------------------------------------------------------------------------------
 
 \section{Problem 4}
 In this problem we will analyze how the Junction Tree Algorithm is applied to a markov chain.
-I have created a matlab script that allows the 
+I have created a matlab script that allows the user to choose model the probabilities within a markov chain and generate the proper marginal distributions across the variables given the Junction Tree Algorithm.
+This file was submitted with this report and is titled ``RunProblem4.m''.
+The code has also been submitted at the end of this report.
 
+To begin the process of solving the proper probability distributions over the variables we create a proper junction tree using the technique discussed above in Problem 3.
+The junction tree nodes are quite simple, and given a chain of nodes $(x_1,x_2,...,x_n)$ we have $n-1$ nodes of which each are denoted as $x_{i}x_{i+1}$.
+We then have n-2 seperators, which are the values of $x$ that are adjacent to two consecutive nodes.
 
+Once this tree is created we then perform message passing as described in Jordan from left to right along the junction tree, and then right to left.
+After this step we normalize each marginal so that we have proper marginals within the graphical model.
+For the first message step we use the process described in Lecture 17 on slide 18, and where the seperator function is represented as $\phi_i$ and the function on the nodes is represented as $\psi_{i,i+1}$, where each are functions of some $x$ variables.
+The update equations therefore can be seen below,
 
+\begin{align}
+\phi_i^* &= \sum_{x_{i-1}} \psi_{i-1,i} \\
+\psi_{i,i+1}^* &= \frac{\phi_i^*}{\phi_i}\psi_{i,i+1}.
+\end{align}
 
+Once the messages have been passed from left to right, we then have ``starred'' values for each of the nodes and seperators, and then pass the message back from right to left according to the junction tree algorithm.
+The corresponding right to left updates are described below, where are variable $i$ gets smaller with each update.
+
+\begin{align}
+\phi_i^{**} &= \sum_{x_{i}+1} \psi_{i,i+1}^{*} \\
+\psi_{i-1,i}^{**} &= \frac{\phi_i^{**}}{\phi_i^*}\psi_{i-1,i}^*.
+\end{align}
+
+Now all of the $\psi$ and  $\phi$ functions are consistent with one another, but to create real joint distribution marginals ($\psi^{**}_{i,i+1} = p(x_i,x_{i+1}))$) each must be normalized.
+To do this we simply divide each value in the $\psi$ tables by the sum of all of the entries that $\psi$ table.
+Thus, we have proper marginal distributions on these variables.
+
+To check that our algorithm is performing this calculation correctly we initalized the $\psi$ tables as described in Problem 4.
+The final output of our algorithm can be seen below, where each $\psi^{**}$ has been normalized so it is a proper marginal distribution on the variables.
+
+\begin{align}
+p(x_1,x_2) &=
+	\begin{pmatrix}
+	0.0405 & 0.4451 \\
+	0.3237 & 0.1908
+	\end{pmatrix} \\
+p(x_2,x_3) &=
+	\begin{pmatrix}
+	0.2601 & 0.1040 \\
+    	0.0578 & 0.5780
+	\end{pmatrix} \\
+p(x_3,x_4) &=
+	\begin{pmatrix}
+	0.1192  &  0.1987 \\
+    	0.6395   & 0.0426
+	\end{pmatrix} \\
+p(x_4,x_5) &=
+	\begin{pmatrix}
+	0.5690  &  0.1897 \\
+    	0.0603  &  0.1810
+	\end{pmatrix}
+\end{align}
+
+Now that we have the proper joint marginal distributions, let's check to make sure that each one is consistent.
+We do this by summing each adjacent $\psi$ table over the non-seperator variables and make sure that they are the same.
+
+\begin{align}
+\sum_{x_1} p(x_1,x_2) &= (0.0405+0.3237,0.4451+0.1908) \\
+&= (.3642,0.6359) = (0.2601+0.1040,0.0578+0.5780) \\ 
+&= \sum_{x_3} p(x_2,x_3),
+\end{align}
+
+\begin{align}
+\sum_{x_2} p(x_2,x_3) &= (0.2601+0.0578,0.1040+0.5780) \\
+&= (.3179,0.6820) = (0.1192+0.1987,0.6395+0.0426) \\ 
+&= \sum_{x_4} p(x_3,x_4),
+\end{align}
+
+\begin{align}
+\sum_{x_3} p(x_3,x_4) &= (0.1192+0.6395,0.1987+0.0426) \\
+&= (0.7587,0.2413) = (0.5690+0.1897,0.0603+0.1810) \\ 
+&= \sum_{x_5} p(x_4,x_5).
+\end{align}
+
+Since the summed marginal distributions agree then we can see here that our marginals are consistent, and our algorithm has worked properly.
 
 \end{document}
