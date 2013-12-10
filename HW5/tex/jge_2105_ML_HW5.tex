@@ -190,13 +190,14 @@ The above statements hold due to the acyclical nature of our graphical model.
 Now let's prove the theorem above.
 
 \begin{align}
-P(X_1,...,X_n) &= P(Y_1,...,Y_N), \ same \ elements \\
+P(X_1,...,X_n) &= P(Y_1,...,Y_N), \ by\ same \ elements, \\
 &= P(Y_2,...,Y_n|Y_1)P(Y_1) \\
 &=... \\
 &= P(Y_n|Y_{n-1},...,Y_1)...P(Y_2|Y_1)P(Y_1) \\
 &= \prod_i^n P(Y_i|Y_{non-desc\ of\ i}) \\
-&= \prod_i^n P(Y_i|Y_{non-desc\ of\ i-\pi_i},Y_{\pi_i}) \\
-&= \prod_i^n P(Y_i|Y_{\pi_i}) \\
+&= \prod_i^n P(Y_i|Y_{non-desc\ of\ i-\pi_i},Y_{\pi_i}), \\
+&\ \ \ \ \ \ \ \ \ \ \ \ by \ Y_{non-desc\ of\ i} = Y_{non-desc\ of\ i-\pi_i} \cup Y_{\pi_i},  \\
+&= \prod_i^n P(Y_i|Y_{\pi_i}), \ by\ X_i \perp X_{non-desc of i}|X_{\pi i}, \\
 &= \prod_i^n P(X_i|X_{\pi_i}) \\
 \end{align}
 
@@ -342,5 +343,13 @@ We do this by summing each adjacent $\psi$ table over the non-seperator variable
 \end{align}
 
 Since the summed marginal distributions agree then we can see here that our marginals are consistent, and our algorithm has worked properly.
+The script used to create these results can be seen in figure \ref{fig:script}.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Problem3/Problem4_script.png}
+\caption{Script Used to process juntion tree on markov chains}
+\label{fig:script}
+\end{figure}
 
 \end{document}
