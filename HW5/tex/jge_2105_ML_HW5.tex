@@ -96,7 +96,37 @@ Which means that our choice of $X$ is completely independent of the actual winni
 Since there are 3 doors, and we choose each equally and each has an equal shot of containing the prize the likely hood of our choice $X$ resulting in the prize is $\frac{1}{3}$.
 
 However, after we have seen the value of $Y$, $X$ and $W$ are no longer independent.
-In fact, 
+So we want to find the probability function for $W$ given that we have observed $X$ and $Y$.
+Therefore, let's do this using Bayes' Rule, and use the fact that $X \perp W$, before we see $Y$ in the derivation below.
+
+\begin{align}
+P(W|X,Y) &= \frac{P(X,Y|W)}{\sum_W P(X,Y|W)} \\
+&= \frac{P(Y|X,W)P(X|W)}{\sum_W P(Y|X,W)P(X|W)} \\
+&= \frac{P(Y|X,W)P(X)}{\sum_W P(Y|X,W)P(X)} \\
+&= \frac{P(X)P(Y|X,W)}{P(X) \sum_W P(Y|X,W)} \\
+&= \frac{P(Y|X,W)}{ \sum_W P(Y|X,W)} 
+\end{align}
+
+Now that we have these probabilities let's evaluate the scenario described.
+We chose A, and therefore the game show host has opened door B and nothing is inside.
+Let's find the probabilities that the winning prize is in our door A or if we should switch to door C.
+We will not normalize the probabilities below, because we assume as described earlier that the probabilities of choosing any of the doors is equal, and the probability of having the winner behind any door is also equal.  Therefore, the priors do not matter
+
+\begin{align}
+p(W=A|X=A, Y=B) &= \frac{P(Y=B|X=A,W=A)}{ \sum_W P(Y=B|X=A,W)} \\
+&= \frac{0.5}{0.5+0+1}  \\
+&= \frac{1}{3}.
+\end{align}
+
+\begin{align}
+p(W=A|X=A, Y=B) &=\frac{P(Y=B|X=A,W=C)}{ \sum_W P(Y=B|X=A,W)} \\
+&= \frac{1}{0.5+0+1}  \\
+&= \frac{2}{3}.
+\end{align}
+
+Therefore, if we switch the door that we choose to C, we would have a $\frac{2}{3}$ chance of winning!  
+If we stay we only have a $\frac{1}{3}$ chance of winning.
+So we should switch!
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 2
@@ -128,6 +158,7 @@ p(x|(w,y,z)) &= p(x|y,z),\ by \ X \perp W|(Y,Z) \\
 Thus, we have shown $X \perp (W,Y)|Z$.
 
 \subsection{Problem 2c}
+
 
 \subsection{Bonus}
 
