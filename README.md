@@ -1,3 +1,1 @@
-Git Repository for Machine Learning 
-Fall 2013 -- Columbia University
-This repository is private.
+Git Repository for my Machine Learning Course.
